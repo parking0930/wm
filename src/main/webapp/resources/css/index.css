@@ -1,0 +1,109 @@
+@charset "UTF-8";
+#banner_div{
+	height:300px;
+	background:#717171;
+	position: relative;
+	z-index:1;
+}
+#banner_div_wrap{
+	width:1250px;
+	height:300px;
+	margin:0 auto;
+}
+#banner_text_wrap{
+	padding-top:130px;
+	padding-right:35px;
+	text-align:right;
+}
+.banner_text{
+	font-family:'Open Sans';
+	font-weight:700;
+	font-size:60px;
+	color:white;
+}
+#contents_div{
+	height:320px;
+}
+#contents_div_wrap{
+	width:1250px;
+	height:320px;
+	margin:0 auto;
+	padding-top:25px;
+	padding-bottom:25px;
+}
+.board_contents{
+	float:left;
+	width:380px;
+	margin-left:30px;
+	border-bottom:3px solid black;
+}
+.title_div{
+	border-bottom:2px solid black;
+}
+.board_name_text{
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	color:black;
+	font-size:22px;
+	margin-left:5px;
+}
+.board_more_text{
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	color:black;
+	font-size:15px;
+	margin-left:245px;
+}
+.board_title{
+	border-top:1px solid black;
+	padding:5px 10px 5px 10px;
+}
+.board_title_font{
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:14px;
+}
+#right_contents{
+	float:left;
+	margin-left:40px;
+	width:350px;
+}
+#my_contents{
+	height:120px;
+	background:#d4d4d4;
+	padding: 30px 0px 30px 0px;
+}
+#gamestartBtn{
+	width:350px;
+}
+#login_text{
+	display:block;
+	text-align:center;
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	color:black;
+	font-size:18px;
+}
+#loginBtn{
+	width:300px;
+	margin-top:5px;
+	margin-left:25px;
+	padding:13px 0px 13px 0px;
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	color:white;
+	text-align:center;
+	font-size:18px;
+	border-radius:10px;
+	background:#606060;
+}
+#reg_div{
+	margin-top:10px;
+	text-align:center;
+}
+.reg_text{
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	color:black;
+	font-size:16px;
+}

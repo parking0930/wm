@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#footer{
+	padding: 10px 0px 10px 0px;
+	background:#bababa;
+	text-align:center;
+}
+.footer_text{
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:13px;
+	display:inline-block;
+	padding-bottom:5px;
+}

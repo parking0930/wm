@@ -23,9 +23,6 @@ public class HomeController {
     
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     
-    @Inject
-    private MemberService service;
-    
     /**
      * Simply selects the home view to render by returning its name.
      */
@@ -33,12 +30,8 @@ public class HomeController {
     public String home(Locale locale, Model model) throws Exception{
  
         logger.info("home");
-        
-        List<MemberVO> memberList = service.selectMember();
-        
-        model.addAttribute("memberList", memberList);
  
-        return "home";
+        return "index";
     }
     
 }
