@@ -69,15 +69,16 @@
 	width:350px;
 }
 #my_contents{
-	height:120px;
+	height:110px;
 	background:#d4d4d4;
-	padding: 30px 0px 30px 0px;
+	padding: 20px 0px 30px 0px;
 }
 #gamestartBtn{
 	width:350px;
 }
 #login_text{
 	display:block;
+	margin-top:5px;
 	text-align:center;
 	font-family:'Noto Sans KR';
 	font-weight:700;
@@ -97,6 +98,10 @@
 	border-radius:10px;
 	background:#606060;
 }
+#loginBtn:hover{
+	background:silver;
+	cursor:pointer;
+}
 #reg_div{
 	margin-top:10px;
 	text-align:center;
@@ -106,4 +111,60 @@
 	font-weight:700;
 	color:black;
 	font-size:16px;
+}
+#profile_wrap{
+	width:100px;
+	margin-top:10px;
+	margin-left: 25px;
+	float:left;
+}
+#profile_img{
+	width:100px;
+	border-radius:50%;
+}
+#myinfo_div{
+	float:left;
+	margin-left:15px;
+	margin-top:7px;
+}
+#nickname_text{
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	color:black;
+	font-size:18px;
+}
+.sub_text{
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	color:black;
+	font-size:15px;
+}
+.my_text{
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	color:black;
+	font-size:16px;
+}
+#my_contents_after{
+	height:110px;
+	background:#f8f8f8;
+	border-radius:15px;
+	margin-bottom:5px;
+	border: 3px solid black;
+	padding: 20px 0px 30px 0px;
+}
+#logout_btn{
+	display:inline-block;
+	background:black;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	color:white;
+	font-size:16px;
+	border-radius:10px;
+	margin-top:5px;
+	padding: 4px 25px 4px 25px;
+}
+#logout_btn:hover{
+	background:silver;
+	cursor:pointer;
 }

@@ -69,6 +69,9 @@
 	height:75px;
 	padding: 10px 0px 10px 0px;
 }
+#top_mainLogo:hover{
+	cursor:pointer;
+}
 #top_MenuBar_left{
 	height:95px;
 	float:left;

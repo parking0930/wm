@@ -20,5 +20,23 @@ public class MemberServiceImpl implements MemberService {
  
         return dao.selectMember();
     }
+
+	@Override
+	public int checkID(MemberVO vo) throws Exception {
+		int result = dao.checkID(vo);
+		return result;
+	}
+
+	@Override
+	public int checkNickname(MemberVO vo) throws Exception {
+		int result = dao.checkNickname(vo);
+		return result;
+	}
+
+	@Override
+	public void signUp(MemberVO vo) throws Exception {
+		dao.signUp(vo);
+		return;
+	}
  
 }

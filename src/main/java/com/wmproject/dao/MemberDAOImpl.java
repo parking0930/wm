@@ -21,5 +21,23 @@ public class MemberDAOImpl implements MemberDAO {
  
         return sqlSession.selectList(Namespace+".selectMember");
     }
+
+	@Override
+	public int checkID(MemberVO vo) throws Exception {
+		int result = sqlSession.selectOne(Namespace+".checkID",vo);
+		return result;
+	}
+
+	@Override
+	public int checkNickname(MemberVO vo) throws Exception {
+		int result = sqlSession.selectOne(Namespace+".checkNickname",vo);
+		return result;
+	}
+
+	@Override
+	public void signUp(MemberVO vo) throws Exception {
+		sqlSession.insert(Namespace+".signUp",vo);
+		return;
+	}
  
 }

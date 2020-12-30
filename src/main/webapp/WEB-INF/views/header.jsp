@@ -20,7 +20,7 @@
 				</div>
 				<div id="top_location_right">
 					<a href="#" class="top_location_text">로그인</a>
-					<a href="#" class="top_location_text">회원가입</a>
+					<a href="./signUp" class="top_location_text">회원가입</a>
 					<a href="#" class="top_location_text">마이페이지</a>
 				</div>
 			</div>
@@ -28,7 +28,7 @@
 		<div id="MenuBar">
 			<div id="top_MenuBar_wrap">
 				<div id="top_MenuBar_left">
-					<img id="top_mainLogo" src="<c:url value="/resources/img/Logo.png" />">
+					<img id="top_mainLogo" src="<c:url value="/resources/img/Logo.png" />" onclick="location.href='./';">
 				</div>
 				<div id="top_MenuBar_right">
 					<a href="#" class="top_MenuBar_text">공지사항</a>

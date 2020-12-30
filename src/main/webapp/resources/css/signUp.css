@@ -1,0 +1,123 @@
+@charset "UTF-8";
+#image_area{
+	position:relative;
+	z-index:1;
+	margin-top:10px;
+	_background:#2a4184;
+}
+#img_wrap{
+	width:700px;
+	margin:0 auto;
+}
+#info_area{
+	width:700px;
+	padding: 10px 0px 20px 0px;
+	margin:0 auto;
+	border-bottom:1px solid silver;
+}
+.info_title{
+	width:600px;
+	margin:0 auto;
+	margin-bottom:10px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:25px;
+	margin-left:10px;
+}
+.info_text{
+	width:700px;
+	margin-left:100px;
+	margin-top:10px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+}
+.check_div{
+	width:700px;
+	margin-left:100px;
+	margin-top:5px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+}
+.check_text{
+	display:inline-block;
+	width:230px;
+	margin-left:125px;
+	color:red;
+}
+.left_text{
+	display:inline-block;
+	width:120px;
+}
+.right_box{
+	width:230px;
+	height:25px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+}
+.right_btn{
+	display:inline-block;
+	padding: 5px 20px 5px 20px;
+	margin-left:10px;
+	background:black;
+	color:white;
+}
+.right_btn:hover{
+	background:silver;
+	cursor:pointer;
+}
+#contents_div{
+	padding-top:10px;
+	padding-bottom:20px;
+}
+#contents_wrap{
+	width:700px;
+	margin:0 auto;
+}
+.agree_text_box{
+	width:580px;
+	height:100px;
+	margin:0 auto;
+	overflow-y:scroll;
+	border:1px solid silver;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:12px;
+	padding: 10px 10px 10px 10px;
+}
+.top_div{
+	width:600px;
+	height:20px;
+	margin:0 auto;
+	margin-bottom:10px;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+}
+.agree_div{
+	width:600px;
+	margin:0 auto;
+	margin-bottom:10px;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+}
+#nextBtn{
+	width:100px;
+	margin:0 auto;
+	margin-bottom:5px;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	background:black;
+	color:white;
+	text-align:center;
+	padding:10px 20px 10px 20px;
+}
+#nextBtn:hover{
+	background:silver;
+	cursor:pointer;
+}

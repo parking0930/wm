@@ -6,4 +6,7 @@ import com.wmproject.domain.MemberVO;
  
 public interface MemberService {
     public List<MemberVO> selectMember() throws Exception;
+    public int checkID(MemberVO vo) throws Exception;
+    public int checkNickname(MemberVO vo) throws Exception;
+    public void signUp(MemberVO vo) throws Exception;
 }

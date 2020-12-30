@@ -10,10 +10,18 @@
 </head>
 <body>
 	<div id="footer">
-		<font class="footer_text">Web Mapia Project</font><br>
-		<font class="footer_text">ⓒ2020.박재현 All Rights Reserved.</font><br>
-		<font class="footer_text">Tel : 010-0000-0000, Mail : parking0930@naver.com</font><br>
-		<font class="footer_text">GitHub : <a href="https://github.com/parking0930">https://github.com/parking0930</a></font>
+		<font class="footer_text">
+			Web Mapia Project
+		</font><br>
+		<font class="footer_text">
+			ⓒ2021.박재현 All Rights Reserved.
+		</font><br>
+		<font class="footer_text">
+			Tel : 010-0000-0000, Mail : parking0930@naver.com
+		</font><br>
+		<font class="footer_text">
+			GitHub : <a href="https://github.com/parking0930">https://github.com/parking0930</a>
+		</font>
 	</div>
 </body>
 </html>
