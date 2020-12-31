@@ -1,7 +1,5 @@
 package com.wmproject.dao;
 
-import java.util.List;
-
 import javax.inject.Inject;
  
 import org.apache.ibatis.session.SqlSession;
@@ -17,9 +15,8 @@ public class MemberDAOImpl implements MemberDAO {
     private static final String Namespace = "mappers.memberMapper";
     
     @Override
-    public List<MemberVO> selectMember() throws Exception {
- 
-        return sqlSession.selectList(Namespace+".selectMember");
+    public MemberVO selectMember(MemberVO vo) throws Exception {
+        return sqlSession.selectOne(Namespace+".selectMember",vo);
     }
 
 	@Override
@@ -38,6 +35,12 @@ public class MemberDAOImpl implements MemberDAO {
 	public void signUp(MemberVO vo) throws Exception {
 		sqlSession.insert(Namespace+".signUp",vo);
 		return;
+	}
+
+	@Override
+	public int login(MemberVO vo) throws Exception {
+		int result = sqlSession.selectOne(Namespace+".login",vo);
+		return result;
 	}
  
 }

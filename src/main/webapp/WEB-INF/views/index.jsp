@@ -69,9 +69,10 @@
 				</div>
 			</div>
 			<div id="right_contents">
+				<%if(session.getAttribute("member")==null){ %>
 				<div id="my_contents">
 					<font id="login_text">로그인하고 게임을 시작하세요!</font>
-					<div id="loginBtn">
+					<div id="loginBtn" onclick="location.href='/login';">
 						로그인
 					</div>
 					<div id="reg_div">
@@ -79,22 +80,22 @@
 						<font class="reg_text" style="margin-left:10px;">아이디·비밀번호 찾기</font>
 					</div>
 				</div>
-				<!-- 
+				<%}else{ %>
 				<div id="my_contents_after">
 					<div id="profile_wrap">
 						<img id="profile_img" src="<c:url value="/resources/img/profile.png" />">
 					</div>
 					<div id="myinfo_div">
-						<font id="nickname_text">Lv.1 닉네임</font>
+						<font id="nickname_text">Lv.${member.level} ${member.nickname}</font>
 						<font class="sub_text">님</font>
 						<font class="sub_text">|</font>
 						<font class="sub_text">내정보</font><br>
-						<font class="my_text">포인트 : 0P</font><br>
-						<font class="my_text">전적 : 0승 0패</font><br>
-						<div id="logout_btn">로그아웃</div>
+						<font class="my_text">포인트 : ${member.point}P</font><br>
+						<font class="my_text">전적 : ${member.win}승 ${member.lose}패</font><br>
+						<div id="logout_btn" onclick="location.href='/member/logout';">로그아웃</div>
 					</div>
 				</div>
-				-->
+				<%} %>
 				<img id="gamestartBtn" src="<c:url value="/resources/img/GameStart.png" />">
 			</div>
 		</div>

@@ -41,7 +41,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(MemberVO vo,HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String signup(MemberVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int result = service.checkID(vo);
 		if(result==1) return "redirect:/";
 		result = service.checkNickname(vo);
@@ -53,5 +53,28 @@ public class MemberController {
         out.println("<script>alert('회원가입이 완료되었습니다.');location.replace('/');</script>");
         out.close();
 		return null;
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(MemberVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int result = service.login(vo);
+		if(result==1) {
+			MemberVO myinfo = service.selectMember(vo);
+			request.getSession().setAttribute("member", myinfo);
+			response.sendRedirect("/");
+			return null;
+		}else {
+			response.setContentType("text/html; charset=UTF-8");
+	        PrintWriter out = response.getWriter();
+	        out.println("<script>alert('아이디 또는 비밀번호가 틀립니다.');history.go(-1);</script>");
+	        out.close();
+	        return null;
+		}
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) throws Exception {
+		request.getSession().invalidate();
+		return "redirect:/";
 	}
 }

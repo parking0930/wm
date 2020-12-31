@@ -6,6 +6,7 @@ public class MemberVO {
 	private String id;
 	private String pw;
 	private String nickname;
+	private int level;
 	private int point;
 	private int win;
 	private int lose;
@@ -28,6 +29,12 @@ public class MemberVO {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	public int getPoint() {
 		return point;
@@ -55,8 +62,7 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "memberVO [id=" + id + ", pw=" + pw + ", nickname=" + nickname + ", point=" + point + ", win=" + win
-				+ ", lose=" + lose + ", date=" + date + "]";
+		return "MemberVO [id=" + id + ", pw=" + pw + ", nickname=" + nickname + ", level=" + level + ", point=" + point
+				+ ", win=" + win + ", lose=" + lose + ", date=" + date + "]";
 	}
-	
 }

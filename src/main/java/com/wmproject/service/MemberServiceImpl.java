@@ -1,7 +1,5 @@
 package com.wmproject.service;
 
-import java.util.List;
-
 import javax.inject.Inject;
  
 import org.springframework.stereotype.Service;
@@ -16,9 +14,8 @@ public class MemberServiceImpl implements MemberService {
     private MemberDAO dao;
     
     @Override
-    public List<MemberVO> selectMember() throws Exception {
- 
-        return dao.selectMember();
+    public MemberVO selectMember(MemberVO vo) throws Exception {
+        return dao.selectMember(vo);
     }
 
 	@Override
@@ -37,6 +34,12 @@ public class MemberServiceImpl implements MemberService {
 	public void signUp(MemberVO vo) throws Exception {
 		dao.signUp(vo);
 		return;
+	}
+
+	@Override
+	public int login(MemberVO vo) throws Exception {
+		int result = dao.login(vo);
+		return result;
 	}
  
 }

@@ -19,8 +19,8 @@
 					
 				</div>
 				<div id="top_location_right">
-					<a href="#" class="top_location_text">로그인</a>
-					<a href="./signUp" class="top_location_text">회원가입</a>
+					<a href="/login" class="top_location_text">로그인</a>
+					<a href="/signUp" class="top_location_text">회원가입</a>
 					<a href="#" class="top_location_text">마이페이지</a>
 				</div>
 			</div>

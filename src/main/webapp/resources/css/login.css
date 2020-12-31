@@ -1,0 +1,57 @@
+@charset "UTF-8";
+#login_box{
+	width:350px;
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	padding: 15px 0px 10px 0px;
+	border:1px solid silver;
+}
+#login_logo_text{
+	margin-bottom:10px;
+	font-family:'Open Sans';
+	font-weight:700;
+	color:black;
+	font-size:22px;
+	text-align:center;
+}
+.input_box_div{
+	text-align:center;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	color:black;
+	font-size:15px;
+}
+.input_box{
+	width:230px;
+	height:30px;
+	margin-bottom:10px;
+	text-decoration:none;
+}
+#login_btn{
+	display:inline-block;
+	text-align:center;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	color:white;
+	font-size:18px;
+	padding: 5px 95px 5px 95px;
+	border-radius:5px;
+	background:black;
+	margin-bottom:5px;
+	border:0;
+}
+#login_btn:hover{
+	background:silver;
+	cursor:pointer;
+}
+#hr_style{
+	display:inline-block;
+	width:280px;
+	border-top:1px solid silver;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.login_bottom_font{
+	color:black;
+}
