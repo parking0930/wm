@@ -8,6 +8,7 @@
 	<title>WEB MAPIA - Write</title>
 	<link href="<c:url value="/resources/css/write.css" />" rel="stylesheet">
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script  src="<c:url value="/resources/js/write.js" />"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
@@ -21,9 +22,9 @@
 				${leftTitle}
 			</div>
 			<div id="board_list">
-				<c:forEach var="board" items="${boardList}">
+				<c:forEach var="bname" items="${boardList}">
 					<div class="board_list_name">
-						${board}
+						${bname}
 					</div>
 				</c:forEach>
 			</div>
@@ -33,12 +34,12 @@
 			<font id="board_name">${mainTitle}</font><br>
 			<font id="board_comment">${subTitle}</font><br>
 			<input type="text" name="title" id="title" placeholder="제목"><br>
-			<div id="imgbtn_design">
+			<div id="imgbtn_design" onclick="img_upload();">
 				<img id="imgicon" src="<c:url value="/resources/img/imgicon.jpg" />">
 				이미지
 			</div>
 			<textarea id="replace_area" name="contents" style="display:none;"></textarea>
-			<div contentEditable="true" id="contents">
+			<div contentEditable="true" id="textarea_text">
 				
 			</div>
 			<div id="button_area">

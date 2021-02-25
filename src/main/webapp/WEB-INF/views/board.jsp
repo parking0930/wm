@@ -18,17 +18,19 @@
 	<div id="center_contents">
 		<div id="left_contents">
 			<div id="left_logo">
-				공지사항
+				${leftTitle}
 			</div>
 			<div id="board_list">
-				<div class="board_list_name">
-					공지사항
-				</div>
+				<c:forEach var="bname" items="${boardList}">
+					<div class="board_list_name">
+						${bname}
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 		<div id="right_contents">
-			<font id="board_name">공지사항</font><br>
-			<font id="board_comment">공지사항 게시판입니다.</font>
+			<font id="board_name">${mainTitle}</font><br>
+			<font id="board_comment">${subTitle}</font>
 			<div id="table_wrap">
 				<table id="board_table">
 					<tr id="board_title_box">
@@ -133,7 +135,7 @@
 			</div>
 			<div id="board_buttons">
 				<%if(session.getAttribute("member")!=null){ %>
-				<div class="btn_design" onclick="location.href='/board/write';">글쓰기</div>
+				<div class="btn_design" onclick="location.href='/board/write?board=${board}';">글쓰기</div>
 				<%} %>
 			</div>
 			<div id="board_num">

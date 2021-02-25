@@ -35,8 +35,8 @@
 					<img id="top_mainLogo" src="<c:url value="/resources/img/Logo.png" />" onclick="location.href='/';">
 				</div>
 				<div id="top_MenuBar_right">
-					<a href="/board/notice" class="top_MenuBar_text">공지사항</a>
-					<a href="/board/free" class="top_MenuBar_text">커뮤니티</a>
+					<a href="/board?board=notice" class="top_MenuBar_text">공지사항</a>
+					<a href="/board?board=free" class="top_MenuBar_text">커뮤니티</a>
 					<a href="/ranking" class="top_MenuBar_text">랭킹</a>
 					<a href="/shop" class="top_MenuBar_text">포인트샵</a>
 					<a href="/board/tel" class="top_MenuBar_text">고객센터</a>
