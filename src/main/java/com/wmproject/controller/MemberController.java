@@ -46,7 +46,6 @@ public class MemberController {
 		if(result==1) return "redirect:/";
 		result = service.checkNickname(vo);
 		if(result==1) return "redirect:/";
-		System.out.println(vo.toString());
 		service.signUp(vo);
 		response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();

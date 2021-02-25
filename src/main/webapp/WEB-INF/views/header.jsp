@@ -19,8 +19,12 @@
 					
 				</div>
 				<div id="top_location_right">
+					<%if(session.getAttribute("member")==null){ %>
 					<a href="/login" class="top_location_text">로그인</a>
 					<a href="/signUp" class="top_location_text">회원가입</a>
+					<%}else{ %>
+					<a href="/member/logout" class="top_location_text">로그아웃</a>
+					<%} %>
 					<a href="#" class="top_location_text">마이페이지</a>
 				</div>
 			</div>
@@ -28,14 +32,14 @@
 		<div id="MenuBar">
 			<div id="top_MenuBar_wrap">
 				<div id="top_MenuBar_left">
-					<img id="top_mainLogo" src="<c:url value="/resources/img/Logo.png" />" onclick="location.href='./';">
+					<img id="top_mainLogo" src="<c:url value="/resources/img/Logo.png" />" onclick="location.href='/';">
 				</div>
 				<div id="top_MenuBar_right">
-					<a href="#" class="top_MenuBar_text">공지사항</a>
-					<a href="#" class="top_MenuBar_text">커뮤니티</a>
-					<a href="#" class="top_MenuBar_text">랭킹</a>
-					<a href="#" class="top_MenuBar_text">포인트샵</a>
-					<a href="#" class="top_MenuBar_text">고객센터</a>
+					<a href="/board/notice" class="top_MenuBar_text">공지사항</a>
+					<a href="/board/free" class="top_MenuBar_text">커뮤니티</a>
+					<a href="/ranking" class="top_MenuBar_text">랭킹</a>
+					<a href="/shop" class="top_MenuBar_text">포인트샵</a>
+					<a href="/board/tel" class="top_MenuBar_text">고객센터</a>
 				</div>
 			</div>
 		</div>
