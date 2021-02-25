@@ -1,15 +1,25 @@
 package com.wmproject.controller;
 
+import java.io.File;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
+	@Resource(name="uploadPath")
+    String uploadPath;
+	
 	String mainTitle;
 	String subTitle;
 	String leftTitle;
@@ -104,8 +114,23 @@ public class BoardController {
     public String imguploadGet(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	return "imgupload";
     }
+    
+    @ResponseBody
     @RequestMapping(value = "/imgupload", method = RequestMethod.POST)
-    public void imguploadPost(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public String imguploadPost(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception{
+    	UUID uuid = UUID.randomUUID();
+    	String fileName = uuid.toString()+"_"+file.getOriginalFilename();
+    	String realPath = request.getServletContext().getRealPath(uploadPath);
     	
+    	File target = new File(realPath, fileName);
+    	if(!new File(realPath).exists()) new File(realPath).mkdirs();
+    	
+		try {
+			FileCopyUtils.copy(file.getBytes(), target);
+		}catch(Exception e) {
+			e.printStackTrace(); System.out.println("업로드 오류 발생!");
+		}
+		
+		return fileName;
     }
 }

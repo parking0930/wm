@@ -7,18 +7,23 @@ function img_upload(){
 	var formData = new FormData($('#uploadform')[0]);
 	$.ajax({
 		type: 'POST',
-		url: '/write/imgupload',
+		url: '/board/imgupload',
 		data: formData,
 		async: false,
 		contentType: false,
-		processData: false
+		processData: false,
+		success: function(data){
+			ChangeAndexit(data);
+		},
+		error: function(){
+			alert("error!");
+		}
 	})
-	ChangeAndexit();
 }
-function ChangeAndexit(){
-	var tmp = document.getElementById('filename').value.split("\\");
-	tmp = tmp[tmp.length-1];
-	opener.document.getElementById('textarea_text').innerHTML = opener.document.getElementById('textarea_text').innerHTML+'<img style="max-width:670px" src="./upload/'+tmp+'">';
-	opener.document.getElementById('textarea_text').scrollTop = opener.document.getElementById('textarea_text').scrollHeight;
-	window.close();
+function ChangeAndexit(fname){
+	opener.document.getElementById('textarea_text').innerHTML = opener.document.getElementById('textarea_text').innerHTML+'<img style="max-width:670px" src="/resources/upload/'+fname+'">';
+	setTimeout(function(){
+		opener.scrollchange();
+		window.close();
+	}, 100);
 }

@@ -18,7 +18,7 @@
 		<div style="float:left;width:100%;padding-top:10px;padding-bottom:10px;">
 			<form action="./imgupload" method="post" enctype="multipart/form-data" id="uploadform">
 			<div style="display:inline-block;width:230px;border:1px solid black;padding:5px 10px 5px 10px;">
-				<input type="file" name="filename" accept="image/gif,image/jpeg,image/png" id="filename">
+				<input type="file" name="file" accept="image/gif,image/jpeg,image/png" id="filename">
 			</div><br>
 				<button id="btn_submit" type="button" onclick="img_upload();">업로드</button>
 			</form>
