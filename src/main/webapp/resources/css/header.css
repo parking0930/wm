@@ -28,10 +28,11 @@
 	float:left;
 }
 #top_location_right{
-	width:250px;
+	width:190px;
 	height:35px;
-	margin-left:580px;
+	margin-left:645px;
 	float:left;
+	text-align:right;
 }
 #top_main_logo{
 	height:15px;

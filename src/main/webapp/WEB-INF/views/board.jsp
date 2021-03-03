@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>WEB MAPIA - Board</title>
+	<title>WEB MAPIA - BOARD</title>
 	<link href="<c:url value="/resources/css/board.css" />" rel="stylesheet">
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
 	<jsp:include page="header.jsp"/>
 	<div id="board_logo">
 		<img style="position:absolute;" src="<c:url value="/resources/img/board.png" />">
-		<div id="board_logo_text">공지사항</div>
+		<div id="board_logo_text">${mainTitle}</div>
 	</div>
 	<div id="center_contents">
 		<div id="left_contents">
@@ -40,90 +40,7 @@
 						<td class="board_date board_tr_plus">작성일</td>
 						<td class="board_view board_tr_plus">조회수</td>
 					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">13</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">12</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">11</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">10</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">9</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">8</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">7</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">6</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">5</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">4</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">3</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">2</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
+					<!-- 최대 13개의 글 표시할 것! -->
 					<tr class="board_struct_bottom">
 						<td class="board_no board_font">1</td>
 						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>

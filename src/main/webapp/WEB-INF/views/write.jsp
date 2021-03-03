@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>WEB MAPIA - Write</title>
+	<title>WEB MAPIA - WRITE</title>
 	<link href="<c:url value="/resources/css/write.css" />" rel="stylesheet">
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script  src="<c:url value="/resources/js/write.js" />"></script>
@@ -14,7 +14,7 @@
 	<jsp:include page="header.jsp"/>
 	<div id="board_logo">
 		<img style="position:absolute;" src="<c:url value="/resources/img/board.png" />">
-		<div id="board_logo_text">공지사항</div>
+		<div id="board_logo_text">${mainTitle}</div>
 	</div>
 	<div id="center_contents">
 		<div id="left_contents">

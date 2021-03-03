@@ -7,10 +7,12 @@
 }
 #board_logo_text{
 	position:absolute;
+	width:1080px;
 	font-family:'Noto Sans KR';
 	font-weight:700;
 	color:white;
-	margin: 75px 0px 0px 915px;
+	margin: 75px 10px 0px 10px;
+	text-align:right;
 	font-size:45px;
 }
 #center_contents{
