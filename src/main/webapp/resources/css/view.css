@@ -47,7 +47,7 @@
 #right_contents{
 	float:left;
 	width:778px;
-	min-height:370px;
+	min-height:380px;
 	margin: 5px 0px 0px 10px;
 	border:1px solid silver;
 	padding:15px 30px 15px 30px;
@@ -73,20 +73,20 @@
 #view_content{
 	border-top:1px solid silver;
 	padding:5px 0px 5px 0px;
-	min-height:200px;
+	min-height:350px;
 	margin:10px 0px 10px 0px;
 	font-family:'Noto Sans KR';
 	font-weight:300;
 	font-size:18px;
 }
 #view_info_box{
-	border-top:2px solid silver;
-	border-bottom:2px solid silver;
-	width:698px;
+	border: 3px solid black;
+	border-radius:20px;
+	width:298px;
 	height:145px;
 	padding:10px 20px 10px 20px;
-	margin-left:20px;
-	margin-bottom:20px;
+	margin-left:440px;
+	margin-bottom:10px;
 	
 }
 #writer_info{
@@ -121,10 +121,11 @@
 	background:silver;
 }
 #board_tools{
-	float:left;
+	display:inline-block;
 	width:840px;
-	margin-left:260px;
 	margin-top:10px;
+	margin-left:260px;
+	margin-bottom:10px;
 	text-align:right;
 }
 .buttons{

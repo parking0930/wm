@@ -41,13 +41,17 @@
 						<td class="board_view board_tr_plus">조회수</td>
 					</tr>
 					<!-- 최대 13개의 글 표시할 것! -->
-					<tr class="board_struct_bottom">
-						<td class="board_no board_font">1</td>
-						<td class="board_title board_font">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-						<td class="board_writer board_font">ㅇㅇㅇㅇ</td>
-						<td class="board_date board_font">2020.11.11</td>
-						<td class="board_view board_font">10000</td>
-					</tr>
+					<c:forEach var="getboard" items="${getlist}">
+						<tr class="board_struct_bottom">
+							<td class="board_no board_font">${getboard.id}</td>
+							<td class="board_title board_font">
+								<a href="/board/view?board=${board}&id=${getboard.id}">${getboard.title}</a>
+							</td>
+							<td class="board_writer board_font">${getboard.nickname}</td>
+							<td class="board_date board_font">${getboard.date}</td>
+							<td class="board_view board_font">${getboard.view}</td>
+						</tr>
+					</c:forEach>
 				</table>
 			</div>
 			<div id="board_buttons">

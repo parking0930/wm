@@ -1,9 +1,11 @@
 package com.wmproject.controller;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,9 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.wmproject.domain.BoardVO;
+import com.wmproject.service.BoardService;
+
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
+
+	@Inject
+    private BoardService service;
+	
 	@Resource(name="uploadPath")
     String uploadPath;
 	
@@ -59,11 +68,17 @@ public class BoardController {
     		default:
     			return "redirect:/";
     	}
+    	
+    	BoardVO nameSampleBoard = new BoardVO();
+    	nameSampleBoard.setBoard(board);
+    	List<BoardVO> getlist = service.selectBoard(nameSampleBoard);
+    	request.setAttribute("getlist", getlist);
 
     	request.setAttribute("mainTitle", mainTitle);
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
+    	
 		return "board";
     }
     
@@ -173,6 +188,7 @@ public class BoardController {
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
+    	
         return "view";
     }
 }
