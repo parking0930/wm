@@ -43,6 +43,8 @@
 	padding:10px 0px 10px 0px;
 	border-bottom:1px solid silver;
 	text-align:center;
+}.board_list_name:hover{
+	cursor:pointer;
 }
 #right_contents{
 	float:left;

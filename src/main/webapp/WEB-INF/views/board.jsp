@@ -21,9 +21,9 @@
 				${leftTitle}
 			</div>
 			<div id="board_list">
-				<c:forEach var="bname" items="${boardList}">
-					<div class="board_list_name">
-						${bname}
+				<c:forEach var="bMap" items="${boardList}">
+					<div class="board_list_name" onclick="location.href='/board?board=${bMap.value}';">
+						${bMap.key}
 					</div>
 				</c:forEach>
 			</div>

@@ -15,9 +15,14 @@ public class MemberDAOImpl implements MemberDAO {
     private static final String Namespace = "mappers.memberMapper";
     
     @Override
-    public MemberVO selectMember(MemberVO vo) throws Exception {
-        return sqlSession.selectOne(Namespace+".selectMember",vo);
+    public MemberVO selectMemberById(MemberVO vo) throws Exception {
+        return sqlSession.selectOne(Namespace+".selectMemberById",vo);
     }
+
+	@Override
+	public MemberVO selectMemberByNick(String nickname) throws Exception {
+		return sqlSession.selectOne(Namespace+".selectMemberByNick",nickname);
+	}
 
 	@Override
 	public int checkID(MemberVO vo) throws Exception {

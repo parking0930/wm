@@ -54,6 +54,9 @@
 	border-bottom:1px solid silver;
 	text-align:center;
 }
+}.board_list_name:hover{
+	cursor:pointer;
+}
 #board_name{
 	font-family:'Noto Sans KR';
 	font-weight:700;

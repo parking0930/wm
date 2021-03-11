@@ -36,9 +36,9 @@ function writeSubmit(){
 
 function img_upload(){
 	var popupWidth = 350;
-	var popupHeight = 130;
+	var popupHeight = 135;
 	var popupX = (window.screen.width / 2) - (popupWidth / 2);
 	var popupY= (window.screen.height / 2) - (popupHeight / 2);
 	window.name = "parentForm";
-	window.open("imgupload", "childForm", "width=350, height=130, resizable = no, scrollbars = no, left="+ popupX + ", top="+ popupY);
+	window.open("imgupload", "childForm", "width="+popupWidth+", height="+popupHeight+", resizable = no, scrollbars = no, left="+ popupX + ", top="+ popupY);
 }

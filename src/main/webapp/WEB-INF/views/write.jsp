@@ -22,28 +22,27 @@
 				${leftTitle}
 			</div>
 			<div id="board_list">
-				<c:forEach var="bname" items="${boardList}">
-					<div class="board_list_name">
-						${bname}
+				<c:forEach var="bMap" items="${boardList}">
+					<div class="board_list_name" onclick="location.href='/board?board=${bMap.value}';">
+						${bMap.key}
 					</div>
 				</c:forEach>
 			</div>
 		</div>
-		<form action="/board/submit" method="post">
+		<form action="/board/submit" method="post" id="frm">
 		<div id="right_contents">
 			<font id="board_name">${mainTitle}</font><br>
 			<font id="board_comment">${subTitle}</font><br>
+			<input type="hidden" name="boardName" value="${board}"><!-- 여기 수정 필요 -->
 			<input type="text" name="title" id="title" placeholder="제목"><br>
 			<div id="imgbtn_design" onclick="img_upload();">
 				<img id="imgicon" src="<c:url value="/resources/img/imgicon.jpg" />">
 				이미지
 			</div>
 			<textarea id="replace_area" name="contents" style="display:none;"></textarea>
-			<div contentEditable="true" id="textarea_text">
-				
-			</div>
+			<div contentEditable="true" id="textarea_text"></div>
 			<div id="button_area">
-				<div class="btn_design">
+				<div class="btn_design" onclick="writeSubmit();">
 					저장하기
 				</div>
 				<div class="btn_design" id="write_cancel" onclick="history.go(-1);">

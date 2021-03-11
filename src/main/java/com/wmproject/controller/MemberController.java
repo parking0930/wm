@@ -58,7 +58,7 @@ public class MemberController {
 	public String login(MemberVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int result = service.login(vo);
 		if(result==1) {
-			MemberVO myinfo = service.selectMember(vo);
+			MemberVO myinfo = service.selectMemberById(vo);
 			request.getSession().setAttribute("member", myinfo);
 			response.sendRedirect("/");
 			return null;

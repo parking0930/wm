@@ -14,9 +14,16 @@ public class MemberServiceImpl implements MemberService {
     private MemberDAO dao;
     
     @Override
-    public MemberVO selectMember(MemberVO vo) throws Exception {
-        return dao.selectMember(vo);
+    public MemberVO selectMemberById(MemberVO vo) throws Exception {
+        return dao.selectMemberById(vo);
     }
+
+	@Override
+	public MemberVO selectMemberByNick(String nickname) throws Exception {
+		MemberVO getMember = dao.selectMemberByNick(nickname);
+		getMember.setDate(getMember.getDate().split(" ")[0]);
+		return getMember;
+	}
 
 	@Override
 	public int checkID(MemberVO vo) throws Exception {

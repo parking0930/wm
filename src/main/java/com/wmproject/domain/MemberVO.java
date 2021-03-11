@@ -1,7 +1,5 @@
 package com.wmproject.domain;
 
-import java.util.Date;
-
 public class MemberVO {
 	private String id;
 	private String pw;
@@ -10,8 +8,8 @@ public class MemberVO {
 	private int point;
 	private int win;
 	private int lose;
-	private Date date;
-	
+	private String date;
+	private String profile;
 	public String getId() {
 		return id;
 	}
@@ -54,15 +52,22 @@ public class MemberVO {
 	public void setLose(int lose) {
 		this.lose = lose;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
+	}
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
 	}
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pw=" + pw + ", nickname=" + nickname + ", level=" + level + ", point=" + point
-				+ ", win=" + win + ", lose=" + lose + ", date=" + date + "]";
+				+ ", win=" + win + ", lose=" + lose + ", date=" + date + ", profile=" + profile + "]";
 	}
+	
 }

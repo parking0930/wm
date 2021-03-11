@@ -1,7 +1,5 @@
 package com.wmproject.domain;
 
-import java.util.Date;
-
 public class BoardVO {
 	private String board;
 	private String id;

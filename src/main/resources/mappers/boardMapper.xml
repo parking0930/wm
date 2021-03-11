@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.boardMapper">
 	<select id="selectBoard" resultType="boardVO">
-		select id, title, contents, nickname, date from ${board};
+		select id, title, contents, nickname, date, view from ${board} order by id desc;
 	</select>
+	<select id="getBoard" resultType="boardVO">
+		select id, title, contents, nickname, date, view from ${board} where id=#{id};
+	</select>
+	<select id="searchBoardId" resultType="boardVO">
+		select id from ${board} where nickname=#{nickname} order by id desc limit 1;
+	</select>
+	<insert id="insertBoard" parameterType="boardVO">
+		insert into ${board}(title, contents, nickname) values(#{title}, #{contents}, #{nickname});
+	</insert>
+	<update id="updateBoard" parameterType="boardVO">
+		update ${board} set view=view+1 where id=#{id};
+	</update>
 </mapper>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.memberMapper">
-	<select id="selectMember" resultType="memberVO">
-		select id, nickname, level, point, win, lose from member where id = #{id};
+	<select id="selectMemberById" resultType="memberVO">
+		select id, nickname, level, point, win, lose, date, profile from member where id = #{id};
+	</select>
+	<select id="selectMemberByNick" parameterType="String" resultType="memberVO">
+		select id, nickname, level, point, win, lose, date, profile from member where nickname = #{nickname};
 	</select>
 	<select id="checkID" resultType="int">
 		select count(*) from member where id = #{id};

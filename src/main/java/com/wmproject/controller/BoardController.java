@@ -1,6 +1,7 @@
 package com.wmproject.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,14 +18,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wmproject.domain.BoardVO;
+import com.wmproject.domain.MemberVO;
 import com.wmproject.service.BoardService;
+import com.wmproject.service.MemberService;
 
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
 
 	@Inject
-    private BoardService service;
+    private BoardService Bservice;
+	
+	@Inject
+    private MemberService Mservice;
 	
 	@Resource(name="uploadPath")
     String uploadPath;
@@ -32,7 +38,7 @@ public class BoardController {
 	String mainTitle;
 	String subTitle;
 	String leftTitle;
-	String[] boardList;
+	HashMap<String, String> boardList;
 	
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String board(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -40,30 +46,35 @@ public class BoardController {
     	if(board==null) return "redirect:/";
     	request.setAttribute("board", board);
     	
+    	boardList = new HashMap<String, String>();
     	switch(board) {
     		case "notice":
     			leftTitle = "공지사항";
     			mainTitle = "공지사항";
     			subTitle = "공지사항 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "event":
     			leftTitle = "공지사항";
     			mainTitle = "이벤트";
     			subTitle = "이벤트 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "free":
     			leftTitle = "커뮤니티";
     			mainTitle = "자유게시판";
     			subTitle = "자유게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		case "screenshot":
     			leftTitle = "커뮤니티";
     			mainTitle = "스크린샷";
     			subTitle = "스크린샷 게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		default:
     			return "redirect:/";
@@ -71,7 +82,7 @@ public class BoardController {
     	
     	BoardVO nameSampleBoard = new BoardVO();
     	nameSampleBoard.setBoard(board);
-    	List<BoardVO> getlist = service.selectBoard(nameSampleBoard);
+    	List<BoardVO> getlist = Bservice.selectBoard(nameSampleBoard);
     	request.setAttribute("getlist", getlist);
 
     	request.setAttribute("mainTitle", mainTitle);
@@ -88,31 +99,36 @@ public class BoardController {
     	
     	String board = request.getParameter("board");
     	if(board==null) return "redirect:/";
-    	
+
+    	boardList = new HashMap<String, String>();
     	switch(board) {
     		case "notice":
     			leftTitle = "공지사항";
     			mainTitle = "공지사항";
     			subTitle = "공지사항 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "event":
     			leftTitle = "공지사항";
     			mainTitle = "이벤트";
     			subTitle = "이벤트 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "free":
     			leftTitle = "커뮤니티";
     			mainTitle = "자유게시판";
     			subTitle = "자유게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		case "screenshot":
     			leftTitle = "커뮤니티";
     			mainTitle = "스크린샷";
     			subTitle = "스크린샷 게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		default:
     			return "redirect:/";
@@ -122,6 +138,7 @@ public class BoardController {
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
+    	request.setAttribute("board", board);
         return "write";
     }
     
@@ -152,43 +169,78 @@ public class BoardController {
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	String board = request.getParameter("board");
+    	String id = request.getParameter("id");
     	
-    	if(board==null) return "redirect:/";
-    	
+    	if(board==null||id==null) return "redirect:/";
+
+    	boardList = new HashMap<String, String>();
     	switch(board) {
     		case "notice":
     			leftTitle = "공지사항";
     			mainTitle = "공지사항";
     			subTitle = "공지사항 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "event":
     			leftTitle = "공지사항";
     			mainTitle = "이벤트";
     			subTitle = "이벤트 게시판입니다.";
-    			boardList = new String[]{"공지사항", "이벤트"};
+    			boardList.put("공지사항", "notice");
+    			boardList.put("이벤트", "event");
     			break;
     		case "free":
     			leftTitle = "커뮤니티";
     			mainTitle = "자유게시판";
     			subTitle = "자유게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		case "screenshot":
     			leftTitle = "커뮤니티";
     			mainTitle = "스크린샷";
     			subTitle = "스크린샷 게시판입니다.";
-    			boardList = new String[]{"자유게시판", "스크린샷"};
+    			boardList.put("자유게시판", "free");
+    			boardList.put("스크린샷", "screenshot");
     			break;
     		default:
     			return "redirect:/";
     	}
-
+    	
+    	BoardVO getBoard = new BoardVO();
+    	getBoard.setBoard(board);
+    	getBoard.setId(id);
+    	Bservice.updateBoard(getBoard);
+    	getBoard = Bservice.getBoard(getBoard);
+    	MemberVO writerInfo = Mservice.selectMemberByNick(getBoard.getNickname());
+    	
     	request.setAttribute("mainTitle", mainTitle);
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
+    	request.setAttribute("board", board);
+    	request.setAttribute("getBoard", getBoard);
+    	request.setAttribute("writerInfo", writerInfo);
     	
         return "view";
+    }
+    
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public String submit(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	String board = request.getParameter("boardName");
+    	String title = request.getParameter("title");
+    	String contents = request.getParameter("contents");
+    	String nickname = ((MemberVO)request.getSession().getAttribute("member")).getNickname();
+    	
+    	BoardVO newInsert = new BoardVO();
+    	newInsert.setBoard(board);
+    	newInsert.setTitle(title);
+    	newInsert.setContents(contents);
+    	newInsert.setNickname(nickname);
+    	Bservice.insertBoard(newInsert);
+    	
+    	String id = Bservice.searchBoardId(newInsert).getId().toString();
+    	System.out.println(id);
+    	return "redirect:/board/view?board="+board+"&id="+id;
     }
 }
