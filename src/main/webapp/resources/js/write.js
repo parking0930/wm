@@ -1,27 +1,8 @@
 $(document).ready(function(){
 	var div=document.querySelector("[contentEditable=\"true\"]");
 	div.onkeyup=function(e){
-  		var a=document.activeElement;
-  		if( a.lastChild && a.lastChild.nodeName!="BR" ){
-			a.appendChild(document.createElement("br"));
-		}
 		if( e.keyCode==13 )
 			scrollchange();
-	};
-	div.onkeypress=function(e){
-		if( e.keyCode==13 ){
-			var selection=window.getSelection(),
-			range=selection.getRangeAt(0),
-			br=document.createElement("br");
-			range.deleteContents();
-			range.insertNode(br);
-			range.setStartAfter(br);
-			range.setEndAfter(br);
-			range.collapse(false);
-			selection.removeAllRanges();
-			selection.addRange(range);
-			return false;
-		}
 	};
 });
 

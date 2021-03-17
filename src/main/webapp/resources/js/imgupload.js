@@ -21,7 +21,8 @@ function img_upload(){
 	})
 }
 function ChangeAndexit(fname){
-	opener.document.getElementById('textarea_text').innerHTML = opener.document.getElementById('textarea_text').innerHTML+'<img style="max-width:670px" src="/resources/upload/'+fname+'">';
+	opener.document.getElementById('textarea_text').innerHTML =
+		opener.document.getElementById('textarea_text').innerHTML+'<img style="max-width:670px" src="/resources/upload/'+fname+'"><br>';
 	setTimeout(function(){
 		opener.scrollchange();
 		window.close();

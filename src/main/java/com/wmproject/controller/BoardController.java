@@ -47,38 +47,7 @@ public class BoardController {
     	request.setAttribute("board", board);
     	
     	boardList = new HashMap<String, String>();
-    	switch(board) {
-    		case "notice":
-    			leftTitle = "공지사항";
-    			mainTitle = "공지사항";
-    			subTitle = "공지사항 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "event":
-    			leftTitle = "공지사항";
-    			mainTitle = "이벤트";
-    			subTitle = "이벤트 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "free":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "자유게시판";
-    			subTitle = "자유게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		case "screenshot":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "스크린샷";
-    			subTitle = "스크린샷 게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		default:
-    			return "redirect:/";
-    	}
+    	if(!this.setPage(board)) return "redirect:/";
     	
     	BoardVO nameSampleBoard = new BoardVO();
     	nameSampleBoard.setBoard(board);
@@ -101,38 +70,7 @@ public class BoardController {
     	if(board==null) return "redirect:/";
 
     	boardList = new HashMap<String, String>();
-    	switch(board) {
-    		case "notice":
-    			leftTitle = "공지사항";
-    			mainTitle = "공지사항";
-    			subTitle = "공지사항 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "event":
-    			leftTitle = "공지사항";
-    			mainTitle = "이벤트";
-    			subTitle = "이벤트 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "free":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "자유게시판";
-    			subTitle = "자유게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		case "screenshot":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "스크린샷";
-    			subTitle = "스크린샷 게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		default:
-    			return "redirect:/";
-    	}
+    	if(!this.setPage(board)) return "redirect:/";
 
     	request.setAttribute("mainTitle", mainTitle);
     	request.setAttribute("subTitle", subTitle);
@@ -148,7 +86,7 @@ public class BoardController {
     }
     
     @ResponseBody
-    @RequestMapping(value = "/imgupload", method = RequestMethod.POST)
+    @RequestMapping(value = "/imgupload", method = RequestMethod.POST, produces = "application/text; charset=utf8")
     public String imguploadPost(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception{
     	UUID uuid = UUID.randomUUID();
     	String fileName = uuid.toString()+"_"+file.getOriginalFilename();
@@ -160,7 +98,8 @@ public class BoardController {
 		try {
 			FileCopyUtils.copy(file.getBytes(), target);
 		}catch(Exception e) {
-			e.printStackTrace(); System.out.println("업로드 오류 발생!");
+			e.printStackTrace();
+			System.out.println("업로드 오류 발생!");
 		}
 		
 		return fileName;
@@ -174,38 +113,7 @@ public class BoardController {
     	if(board==null||id==null) return "redirect:/";
 
     	boardList = new HashMap<String, String>();
-    	switch(board) {
-    		case "notice":
-    			leftTitle = "공지사항";
-    			mainTitle = "공지사항";
-    			subTitle = "공지사항 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "event":
-    			leftTitle = "공지사항";
-    			mainTitle = "이벤트";
-    			subTitle = "이벤트 게시판입니다.";
-    			boardList.put("공지사항", "notice");
-    			boardList.put("이벤트", "event");
-    			break;
-    		case "free":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "자유게시판";
-    			subTitle = "자유게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		case "screenshot":
-    			leftTitle = "커뮤니티";
-    			mainTitle = "스크린샷";
-    			subTitle = "스크린샷 게시판입니다.";
-    			boardList.put("자유게시판", "free");
-    			boardList.put("스크린샷", "screenshot");
-    			break;
-    		default:
-    			return "redirect:/";
-    	}
+    	if(!this.setPage(board)) return "redirect:/";
     	
     	BoardVO getBoard = new BoardVO();
     	getBoard.setBoard(board);
@@ -240,7 +148,43 @@ public class BoardController {
     	Bservice.insertBoard(newInsert);
     	
     	String id = Bservice.searchBoardId(newInsert).getId().toString();
-    	System.out.println(id);
     	return "redirect:/board/view?board="+board+"&id="+id;
+    }
+    
+    // 컨트롤러에서 사용할 메소드 정의
+    public boolean setPage(String board) {
+    	switch(board) {
+			case "notice":
+				leftTitle = "공지사항";
+				mainTitle = "공지사항";
+				subTitle = "공지사항 게시판입니다.";
+				boardList.put("공지사항", "notice");
+				boardList.put("이벤트", "event");
+				break;
+			case "event":
+				leftTitle = "공지사항";
+				mainTitle = "이벤트";
+				subTitle = "이벤트 게시판입니다.";
+				boardList.put("공지사항", "notice");
+				boardList.put("이벤트", "event");
+				break;
+			case "free":
+				leftTitle = "커뮤니티";
+				mainTitle = "자유게시판";
+				subTitle = "자유게시판입니다.";
+				boardList.put("자유게시판", "free");
+				boardList.put("스크린샷", "screenshot");
+				break;
+			case "screenshot":
+				leftTitle = "커뮤니티";
+				mainTitle = "스크린샷";
+				subTitle = "스크린샷 게시판입니다.";
+				boardList.put("자유게시판", "free");
+				boardList.put("스크린샷", "screenshot");
+				break;
+			default:
+				return false;
+    	}
+    	return true;
     }
 }
