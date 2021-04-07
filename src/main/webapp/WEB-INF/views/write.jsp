@@ -34,13 +34,13 @@
 			<font id="board_name">${mainTitle}</font><br>
 			<font id="board_comment">${subTitle}</font><br>
 			<input type="hidden" name="boardName" value="${board}"><!-- 여기 수정 필요 -->
-			<input type="text" name="title" id="title" placeholder="제목"><br>
+			<input type="text" name="title" id="title" placeholder="제목" value="${getBoard.title}"><br>
 			<div id="imgbtn_design" onclick="img_upload();">
 				<img id="imgicon" src="<c:url value="/resources/img/imgicon.jpg" />">
 				이미지
 			</div>
 			<textarea id="replace_area" name="contents" style="display:none;"></textarea>
-			<div contentEditable="true" id="textarea_text"></div>
+			<div contentEditable="true" id="textarea_text">${getBoard.contents}</div>
 			<div id="button_area">
 				<div class="btn_design" onclick="writeSubmit();">
 					저장하기

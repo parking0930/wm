@@ -64,11 +64,14 @@ public class BoardController {
     
     @RequestMapping(value = "/write", method = RequestMethod.GET)
     public String write(HttpServletRequest request, HttpServletResponse response) throws Exception{
-    	if(request.getSession().getAttribute("member")==null) return "redirect:/";
-    	
+    	boolean edit = false;
     	String board = request.getParameter("board");
+    	String id = request.getParameter("id"); // 수정 시에만 요구
+    	
+    	if(request.getSession().getAttribute("member")==null) return "redirect:/";
     	if(board==null) return "redirect:/";
-
+    	if(id!=null) edit = true; // id 입럭 시 수정 모드로 변경
+    	
     	boardList = new HashMap<String, String>();
     	if(!this.setPage(board)) return "redirect:/";
 
@@ -77,6 +80,20 @@ public class BoardController {
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
     	request.setAttribute("board", board);
+    	
+    	if(edit) {
+    		// 수정 시 작성
+    		// 해당 글이 있는지, 본인이 맞는지 확인
+    		BoardVO tmpBoard = new BoardVO();
+    		tmpBoard.setBoard(board);
+    		tmpBoard.setId(id);
+    		BoardVO getBoard = Bservice.getBoard(tmpBoard);
+    		if(getBoard==null) return "redirect:/";
+    		if(!getBoard.getNickname().equals(((MemberVO)request.getSession().getAttribute("member")).getNickname()))
+    			return "redirect:/";
+    		request.setAttribute("getBoard", getBoard);
+    	}
+    	
         return "write";
     }
     
@@ -135,19 +152,27 @@ public class BoardController {
     
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public String submit(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	boolean edit = false;
     	String board = request.getParameter("boardName");
     	String title = request.getParameter("title");
     	String contents = request.getParameter("contents");
     	String nickname = ((MemberVO)request.getSession().getAttribute("member")).getNickname();
+    	String id = request.getParameter("id");
+    	
+    	if(id!=null) edit = true; // 수정 적용 추가 정의 필요
     	
     	BoardVO newInsert = new BoardVO();
     	newInsert.setBoard(board);
     	newInsert.setTitle(title);
     	newInsert.setContents(contents);
     	newInsert.setNickname(nickname);
-    	Bservice.insertBoard(newInsert);
     	
-    	String id = Bservice.searchBoardId(newInsert).getId().toString();
+    	if(edit) {
+    		
+    	}else {
+        	Bservice.insertBoard(newInsert);
+    		id = Bservice.searchBoardId(newInsert).getId().toString();
+    	}
     	return "redirect:/board/view?board="+board+"&id="+id;
     }
     
