@@ -6,5 +6,6 @@
 	<typeAliases>
 		<typeAlias alias="memberVO" type="com.wmproject.domain.MemberVO" />
 		<typeAlias alias="boardVO" type="com.wmproject.domain.BoardVO" />
+		<typeAlias alias="commentVO" type="com.wmproject.domain.CommentVO" />
 	</typeAliases>
 </configuration>

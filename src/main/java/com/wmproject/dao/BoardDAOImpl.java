@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.wmproject.domain.BoardVO;
+import com.wmproject.domain.CommentVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -35,12 +36,23 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public void insertBoard(BoardVO board) throws Exception {
 		sqlSession.insert(Namespace+".insertBoard", board);
-		return;		
+		return;
 	}
 
 	@Override
 	public void updateBoard(BoardVO board) throws Exception {
 		sqlSession.update(Namespace+".updateBoard", board);
+	}
+
+	@Override
+	public List<CommentVO> selectComments(BoardVO board) throws Exception {
+		return sqlSession.selectList(Namespace+".selectComments", board);
+	}
+
+	@Override
+	public void writeComment(CommentVO comment) throws Exception {
+		sqlSession.insert(Namespace+".writeComment", comment);
+		return;
 	}
 
 }

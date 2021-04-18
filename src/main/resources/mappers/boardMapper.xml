@@ -16,4 +16,10 @@
 	<update id="updateBoard" parameterType="boardVO">
 		update ${board} set view=view+1 where id=#{id};
 	</update>
+	<insert id="writeComment" parameterType="commentVO">
+		insert into comment(bid, board, comment, nickname) values(#{bid}, #{board}, #{comment}, #{nickname});
+	</insert>
+	<select id="selectComments" resultType="commentVO">
+		select * from comment where board=#{board} and bid=#{id} order by id;
+	</select>
 </mapper>

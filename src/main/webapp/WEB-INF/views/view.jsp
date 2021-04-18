@@ -7,7 +7,8 @@
 	<meta charset="UTF-8">
 	<title>WEB MAPIA - VIEW</title>
 	<link href="<c:url value="/resources/css/view.css" />" rel="stylesheet">
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/view.js" />"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
@@ -48,11 +49,40 @@
 					<div class="user_info_font">가입일 : ${writerInfo.date}</div>
 				</div>
 			</div>
+			<div id="comment_relative">댓글 ${CommentCount}</div>
 			<div class="cut_line"></div>
+			<c:forEach var="comment" items="${commentList}">
+				<div class="comments">
+					<div class="comment_user_img_box">
+						<img class="comment_profile" src="<c:url value="/resources/img/${writerInfo.profile}" />">
+					</div>
+					<div class="comment_user_info">Lv${comment.writerinfo.level}. ${comment.writerinfo.nickname}</div>
+					<div class="comment_date">
+						${comment.date}
+					</div>
+					<div class="comment_content">
+						${comment.comment}
+					</div>
+				</div>
+			</c:forEach>
+			<%if(session.getAttribute("member")!=null){ %>
+			<form id="frm" action="/board/comment" method="post">
+			<div id="comment_write">
+				<input type="hidden" name="board" value="${board}">
+				<input type="hidden" name="bid" value="${getBoard.id}">
+				<textarea id="comment_area" name="comment" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+				<div id="comment_btn_area">
+					<div id="comment_submit" onclick="submitComment();">작성</div>
+				</div>
+			</div>
+			</form>
+			<%} %>
 		</div><br>
 		<div id="board_tools">
-			<div class="buttons">수정</div>
+			<%if((boolean)request.getAttribute("myData")){ %>
+			<div class="buttons" onclick="location.href='/board/write?board=${board}&id=${getBoard.id}';">수정</div>
 			<div class="buttons">삭제</div>
+			<%} %>
 			<div class="buttons" onclick="location.href='/board?board=${board}';">목록</div>
 		</div>
 	</div>

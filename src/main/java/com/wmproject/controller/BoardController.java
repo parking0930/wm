@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wmproject.domain.BoardVO;
+import com.wmproject.domain.CommentVO;
 import com.wmproject.domain.MemberVO;
 import com.wmproject.service.BoardService;
 import com.wmproject.service.MemberService;
@@ -126,7 +127,7 @@ public class BoardController {
     public String view(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	String board = request.getParameter("board");
     	String id = request.getParameter("id");
-    	
+    	boolean myData = false;
     	if(board==null||id==null) return "redirect:/";
 
     	boardList = new HashMap<String, String>();
@@ -136,9 +137,19 @@ public class BoardController {
     	getBoard.setBoard(board);
     	getBoard.setId(id);
     	Bservice.updateBoard(getBoard);
+
+    	List<CommentVO> commentList = Bservice.selectComments(getBoard);
+    	int CommentCount = commentList.size();
+    	
     	getBoard = Bservice.getBoard(getBoard);
     	MemberVO writerInfo = Mservice.selectMemberByNick(getBoard.getNickname());
     	
+    	if(request.getSession().getAttribute("member")!=null) {
+    		if(((MemberVO)request.getSession().getAttribute("member")).getNickname().equals(writerInfo.getNickname()))
+    			myData = true;
+    	}
+    	
+    	request.setAttribute("myData", myData);
     	request.setAttribute("mainTitle", mainTitle);
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
@@ -146,6 +157,8 @@ public class BoardController {
     	request.setAttribute("board", board);
     	request.setAttribute("getBoard", getBoard);
     	request.setAttribute("writerInfo", writerInfo);
+    	request.setAttribute("commentList", commentList);
+    	request.setAttribute("CommentCount", CommentCount);
     	
         return "view";
     }
@@ -174,6 +187,13 @@ public class BoardController {
     		id = Bservice.searchBoardId(newInsert).getId().toString();
     	}
     	return "redirect:/board/view?board="+board+"&id="+id;
+    }
+    
+    @RequestMapping(value = "/comment", method = RequestMethod.POST)
+    public String comment(CommentVO comment, HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	comment.setNickname(((MemberVO)request.getSession().getAttribute("member")).getNickname());
+    	Bservice.writeComment(comment);
+    	return "redirect:/board/view?board="+comment.getBoard()+"&id="+comment.getBid();
     }
     
     // 컨트롤러에서 사용할 메소드 정의

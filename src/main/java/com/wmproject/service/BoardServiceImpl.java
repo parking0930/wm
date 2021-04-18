@@ -1,10 +1,13 @@
 package com.wmproject.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import com.wmproject.dao.BoardDAO;
 import com.wmproject.domain.BoardVO;
+import com.wmproject.domain.CommentVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -12,11 +15,23 @@ public class BoardServiceImpl implements BoardService {
     @Inject
     private BoardDAO dao;
     
+    @Inject
+    private MemberService Mservice;
+    
 	@Override
 	public List<BoardVO> selectBoard(BoardVO board) throws Exception {
 		List<BoardVO> list = dao.selectBoard(board);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+		String nowDate = sdf.format(new Date()).split(" ")[0];
+		String tmpDate;
 		for(BoardVO tmp:list) {
-			tmp.setDate(tmp.getDate().split(" ")[0]);
+			tmpDate = tmp.getDate().split(" ")[0];
+			if(nowDate.equals(tmpDate)) {
+				Date parseDate = sdf.parse(tmp.getDate());
+				tmp.setDate(sdf2.format(parseDate));
+			}
+			else tmp.setDate(tmpDate);
 		}
 		return list;
 	}
@@ -41,6 +56,21 @@ public class BoardServiceImpl implements BoardService {
 	public void updateBoard(BoardVO board) throws Exception {
 		dao.updateBoard(board);
 		return;		
+	}
+
+	@Override
+	public List<CommentVO> selectComments(BoardVO board) throws Exception {
+		List<CommentVO> commentList = dao.selectComments(board);
+		for(CommentVO tmpComment:commentList) {
+			tmpComment.setWriterinfo(Mservice.selectMemberByNick(tmpComment.getNickname()));
+		}
+		return commentList;
+	}
+
+	@Override
+	public void writeComment(CommentVO comment) throws Exception {
+		dao.writeComment(comment);
+		return;
 	}
 
 }
