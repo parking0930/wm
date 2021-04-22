@@ -40,6 +40,16 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
+	public void editBoard(BoardVO board) throws Exception {
+		sqlSession.update(Namespace+".editBoard", board);
+	}
+
+	@Override
+	public void deleteBoard(BoardVO board) throws Exception {
+		sqlSession.delete(Namespace+".deleteBoard", board);
+	}
+
+	@Override
 	public void updateBoard(BoardVO board) throws Exception {
 		sqlSession.update(Namespace+".updateBoard", board);
 	}

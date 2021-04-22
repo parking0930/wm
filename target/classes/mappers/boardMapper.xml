@@ -16,6 +16,12 @@
 	<update id="updateBoard" parameterType="boardVO">
 		update ${board} set view=view+1 where id=#{id};
 	</update>
+	<update id="editBoard" parameterType="boardVO">
+		update ${board} set title=#{title}, contents=#{contents} where id=#{id};
+	</update>
+	<delete id="deleteBoard" parameterType="boardVO">
+		delete from ${board} where id=#{id};
+	</delete>
 	<insert id="writeComment" parameterType="commentVO">
 		insert into comment(bid, board, comment, nickname) values(#{bid}, #{board}, #{comment}, #{nickname});
 	</insert>

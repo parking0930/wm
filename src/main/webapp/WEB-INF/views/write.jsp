@@ -33,7 +33,8 @@
 		<div id="right_contents">
 			<font id="board_name">${mainTitle}</font><br>
 			<font id="board_comment">${subTitle}</font><br>
-			<input type="hidden" name="boardName" value="${board}"><!-- 여기 수정 필요 -->
+			<input type="hidden" name="boardName" value="${board}">
+			<input type="hidden" name="id" value="${getBoard.id}">
 			<input type="text" name="title" id="title" placeholder="제목" value="${getBoard.title}"><br>
 			<div id="imgbtn_design" onclick="img_upload();">
 				<img id="imgicon" src="<c:url value="/resources/img/imgicon.jpg" />">

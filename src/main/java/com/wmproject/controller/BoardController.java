@@ -71,7 +71,7 @@ public class BoardController {
     	
     	if(request.getSession().getAttribute("member")==null) return "redirect:/";
     	if(board==null) return "redirect:/";
-    	if(id!=null) edit = true; // id 입럭 시 수정 모드로 변경
+    	if(id!=null) edit = true;
     	
     	boardList = new HashMap<String, String>();
     	if(!this.setPage(board)) return "redirect:/";
@@ -81,6 +81,7 @@ public class BoardController {
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
     	request.setAttribute("board", board);
+    	request.setAttribute("id", id);
     	
     	if(edit) {
     		// 수정 시 작성
@@ -89,7 +90,10 @@ public class BoardController {
     		tmpBoard.setBoard(board);
     		tmpBoard.setId(id);
     		BoardVO getBoard = Bservice.getBoard(tmpBoard);
-    		if(getBoard==null) return "redirect:/";
+    		
+    		if(getBoard==null) return "redirect:/"; // 해당 게시글이 없으면 메인으로 돌아감
+
+    		// 본인 게시글이 아니면 메인으로 돌아감
     		if(!getBoard.getNickname().equals(((MemberVO)request.getSession().getAttribute("member")).getNickname()))
     			return "redirect:/";
     		request.setAttribute("getBoard", getBoard);
@@ -172,26 +176,65 @@ public class BoardController {
     	String nickname = ((MemberVO)request.getSession().getAttribute("member")).getNickname();
     	String id = request.getParameter("id");
     	
-    	if(id!=null) edit = true; // 수정 적용 추가 정의 필요
-    	
-    	BoardVO newInsert = new BoardVO();
-    	newInsert.setBoard(board);
-    	newInsert.setTitle(title);
-    	newInsert.setContents(contents);
-    	newInsert.setNickname(nickname);
+    	if(!id.equals("")) edit = true; // 수정 적용 추가 정의 필요
     	
     	if(edit) {
+    		// 해당 글이 있는지, 본인이 맞는지 확인
+    		BoardVO tmpBoard = new BoardVO();
+    		tmpBoard.setBoard(board);
+    		tmpBoard.setId(id);
     		
+    		BoardVO getBoard = Bservice.getBoard(tmpBoard);    		
+    		if(getBoard==null) return "redirect:/"; // 해당 게시글이 없으면 메인으로 돌아감
+
+    		// 본인 게시글이 아니면 메인으로 돌아감
+    		if(!getBoard.getNickname().equals(((MemberVO)request.getSession().getAttribute("member")).getNickname()))
+    			return "redirect:/";
+
+    		getBoard.setBoard(board);
+    		getBoard.setTitle(title);
+    		getBoard.setContents(contents);
+    		Bservice.editBoard(getBoard);
     	}else {
+        	BoardVO newInsert = new BoardVO();
+        	newInsert.setBoard(board);
+        	newInsert.setTitle(title);
+        	newInsert.setContents(contents);
+        	newInsert.setNickname(nickname);
+        	
         	Bservice.insertBoard(newInsert);
     		id = Bservice.searchBoardId(newInsert).getId().toString();
     	}
     	return "redirect:/board/view?board="+board+"&id="+id;
     }
     
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	String board = request.getParameter("board");
+    	String id = request.getParameter("id");
+
+    	if(board==null) return "redirect:/";
+    	if(id==null) return "redirect:/";
+    	
+    	BoardVO checkBoard = new BoardVO();
+    	checkBoard.setBoard(board);
+    	checkBoard.setId(id);
+    	checkBoard = Bservice.getBoard(checkBoard);
+    	
+		// 본인 게시글이 아니면 메인으로 돌아감
+		if(!checkBoard.getNickname().equals(((MemberVO)request.getSession().getAttribute("member")).getNickname()))
+			return "redirect:/";
+    	
+    	checkBoard.setBoard(board);
+    	Bservice.deleteBoard(checkBoard);
+    	
+    	return "redirect:/board?board="+board;
+    }
+    
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
     public String comment(CommentVO comment, HttpServletRequest request, HttpServletResponse response) throws Exception{
     	comment.setNickname(((MemberVO)request.getSession().getAttribute("member")).getNickname());
+    	comment.toString();
     	Bservice.writeComment(comment);
     	return "redirect:/board/view?board="+comment.getBoard()+"&id="+comment.getBid();
     }

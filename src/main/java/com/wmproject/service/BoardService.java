@@ -10,6 +10,8 @@ public interface BoardService {
     public BoardVO searchBoardId(BoardVO board) throws Exception;
     public BoardVO getBoard(BoardVO board) throws Exception;
     public void insertBoard(BoardVO board) throws Exception;
+    public void editBoard(BoardVO board) throws Exception;
+    public void deleteBoard(BoardVO board) throws Exception;
     public void updateBoard(BoardVO board) throws Exception;
     public List<CommentVO> selectComments(BoardVO board) throws Exception;
     public void writeComment(CommentVO comment) throws Exception;

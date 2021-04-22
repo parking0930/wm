@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div id="right_contents">
-			<div id="view_board_name_font"># 공지사항</div>
+			<div id="view_board_name_font"># ${mainTitle}</div>
 			<div id="view_title_font">${getBoard.title}</div>
 			<div style="float:left;" class="date_view">${getBoard.date}</div>
 			<div class="date_view">조회 ${getBoard.view}</div>
@@ -81,7 +81,7 @@
 		<div id="board_tools">
 			<%if((boolean)request.getAttribute("myData")){ %>
 			<div class="buttons" onclick="location.href='/board/write?board=${board}&id=${getBoard.id}';">수정</div>
-			<div class="buttons">삭제</div>
+			<div class="buttons" onclick="location.href='/board/delete?board=${board}&id=${getBoard.id}';">삭제</div>
 			<%} %>
 			<div class="buttons" onclick="location.href='/board?board=${board}';">목록</div>
 		</div>
