@@ -19,4 +19,7 @@
 	<insert id="signUp" parameterType="memberVO">
 		insert into member(id, pw, nickname) values(#{id}, #{pw}, #{nickname});
 	</insert>
+	<update id="updateProfile" parameterType="memberVO">
+		update member set pw=#{pw}, profile=#{profile} where id=#{id};
+	</update>
 </mapper>

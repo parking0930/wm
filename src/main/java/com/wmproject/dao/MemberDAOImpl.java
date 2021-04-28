@@ -47,5 +47,10 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = sqlSession.selectOne(Namespace+".login",vo);
 		return result;
 	}
+
+	@Override
+	public void updateProfile(MemberVO vo) throws Exception {
+		sqlSession.update(Namespace+".updateProfile", vo);
+	}
  
 }

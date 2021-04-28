@@ -7,5 +7,6 @@
 		<typeAlias alias="memberVO" type="com.wmproject.domain.MemberVO" />
 		<typeAlias alias="boardVO" type="com.wmproject.domain.BoardVO" />
 		<typeAlias alias="commentVO" type="com.wmproject.domain.CommentVO" />
+		<typeAlias alias="pagingVO" type="com.wmproject.domain.PagingVO" />
 	</typeAliases>
 </configuration>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.wmproject.dao.BoardDAO;
 import com.wmproject.domain.BoardVO;
 import com.wmproject.domain.CommentVO;
+import com.wmproject.domain.PagingVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -19,8 +20,8 @@ public class BoardServiceImpl implements BoardService {
     private MemberService Mservice;
     
 	@Override
-	public List<BoardVO> selectBoard(BoardVO board) throws Exception {
-		List<BoardVO> list = dao.selectBoard(board);
+	public List<BoardVO> selectBoard(PagingVO paging) throws Exception {
+		List<BoardVO> list = dao.selectBoard(paging);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 		String nowDate = sdf.format(new Date()).split(" ")[0];
@@ -34,6 +35,11 @@ public class BoardServiceImpl implements BoardService {
 			else tmp.setDate(tmpDate);
 		}
 		return list;
+	}
+
+	@Override
+	public int cntBoard(BoardVO board) throws Exception {
+		return dao.cntBoard(board);
 	}
 
 	@Override
@@ -84,5 +90,5 @@ public class BoardServiceImpl implements BoardService {
 		dao.writeComment(comment);
 		return;
 	}
-
+	
 }

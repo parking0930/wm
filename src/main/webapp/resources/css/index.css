@@ -72,9 +72,12 @@
 	height:110px;
 	background:#d4d4d4;
 	padding: 20px 0px 30px 0px;
+	box-shadow: 5px 5px 5px silver;
 }
 #gamestartBtn{
-	width:350px;
+	margin-top:10px;
+	width:355px;
+	box-shadow: 5px 5px 5px silver;
 }
 #login_text{
 	display:block;
@@ -149,9 +152,9 @@
 	height:110px;
 	background:#f8f8f8;
 	border-radius:15px;
-	margin-bottom:5px;
 	border: 3px solid black;
 	padding: 20px 0px 30px 0px;
+	box-shadow: 5px 5px 5px silver;
 }
 #logout_btn{
 	display:inline-block;
@@ -166,5 +169,8 @@
 }
 #logout_btn:hover{
 	background:silver;
+	cursor:pointer;
+}
+.text_cursor:hover{
 	cursor:pointer;
 }

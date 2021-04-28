@@ -24,7 +24,7 @@
 					<a href="/signUp" class="top_location_text">회원가입</a>
 					<%}else{ %>
 					<a href="/member/logout" class="top_location_text">로그아웃</a>
-					<a href="#" class="top_location_text">마이페이지</a>
+					<a href="/member/mypage" class="top_location_text">마이페이지</a>
 					<%} %>
 				</div>
 			</div>

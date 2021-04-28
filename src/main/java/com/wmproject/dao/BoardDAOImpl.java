@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wmproject.domain.BoardVO;
 import com.wmproject.domain.CommentVO;
+import com.wmproject.domain.PagingVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -19,8 +20,13 @@ public class BoardDAOImpl implements BoardDAO{
     private static final String Namespace = "mappers.boardMapper";
     
 	@Override
-	public List<BoardVO> selectBoard(BoardVO board) throws Exception {
-		return sqlSession.selectList(Namespace+".selectBoard", board);
+	public List<BoardVO> selectBoard(PagingVO paging) throws Exception {
+		return sqlSession.selectList(Namespace+".selectBoard", paging);
+	}
+
+	@Override
+	public int cntBoard(BoardVO board) throws Exception {
+		return sqlSession.selectOne(Namespace+".cntBoard", board);
 	}
 	
 	@Override

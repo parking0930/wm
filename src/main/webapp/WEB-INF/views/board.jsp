@@ -60,7 +60,20 @@
 				<%} %>
 			</div>
 			<div id="board_num">
-				< 1 2 3 >
+				<%if((boolean)request.getAttribute("startArrow")){ %>
+					<a class="urlStyle" href="/board?board=${board}&page=${pagingManager.startPage-1}"><</a>
+				<%} %>
+				<c:forEach var="i" begin="${pagingManager.startPage}" end="${pagingManager.endPage}">
+					<c:if test="${i==pagingManager.nowPage}">
+						<font class="nowStyle">${i}</font>
+					</c:if>
+					<c:if test="${i!=pagingManager.nowPage}">
+						<a class="urlStyle" href="/board?board=${board}&page=${i}">${i}</a>
+					</c:if>
+				</c:forEach>
+				<%if((boolean)request.getAttribute("endArrow")){ %>
+					<a class="urlStyle" href="/board?board=${board}&page=${pagingManager.endPage+1}">></a>
+				<%} %>
 			</div>
 		</div>
 	</div>

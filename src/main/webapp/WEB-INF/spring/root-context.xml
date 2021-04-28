@@ -49,4 +49,7 @@
 	<bean id="uploadPath" class="java.lang.String">
 		<constructor-arg value="/resources/upload/"/>
 	</bean>
+	<bean id="uploadProfilePath" class="java.lang.String">
+		<constructor-arg value="/resources/upload/profile/"/>
+	</bean>
 </beans>

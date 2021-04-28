@@ -9,4 +9,5 @@ public interface MemberService {
     public int checkNickname(MemberVO vo) throws Exception;
     public void signUp(MemberVO vo) throws Exception;
     public int login(MemberVO vo) throws Exception;
+    public void updateProfile(MemberVO vo) throws Exception;
 }

@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.wmproject.domain.BoardVO;
 import com.wmproject.domain.CommentVO;
+import com.wmproject.domain.PagingVO;
 
 public interface BoardService {
-    public List<BoardVO> selectBoard(BoardVO board) throws Exception;
+    public List<BoardVO> selectBoard(PagingVO paging) throws Exception;
+    public int cntBoard(BoardVO board) throws Exception;
     public BoardVO searchBoardId(BoardVO board) throws Exception;
     public BoardVO getBoard(BoardVO board) throws Exception;
     public void insertBoard(BoardVO board) throws Exception;

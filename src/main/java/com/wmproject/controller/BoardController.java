@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wmproject.domain.BoardVO;
 import com.wmproject.domain.CommentVO;
 import com.wmproject.domain.MemberVO;
+import com.wmproject.domain.PagingVO;
 import com.wmproject.service.BoardService;
 import com.wmproject.service.MemberService;
 
@@ -44,22 +45,33 @@ public class BoardController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String board(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	String board = request.getParameter("board");
+    	String nowPage = request.getParameter("page");
     	if(board==null) return "redirect:/";
-    	request.setAttribute("board", board);
+    	if(nowPage==null) nowPage = "1";
     	
     	boardList = new HashMap<String, String>();
     	if(!this.setPage(board)) return "redirect:/";
     	
     	BoardVO nameSampleBoard = new BoardVO();
     	nameSampleBoard.setBoard(board);
-    	List<BoardVO> getlist = Bservice.selectBoard(nameSampleBoard);
-    	request.setAttribute("getlist", getlist);
 
+    	PagingVO pagingManager = new PagingVO(board, Bservice.cntBoard(nameSampleBoard), Integer.parseInt(nowPage), 13);
+    	List<BoardVO> getlist = Bservice.selectBoard(pagingManager);
+
+    	boolean startArrow = false;
+    	boolean endArrow = false;
+    	if(pagingManager.getNowPage()>5) startArrow = true;
+    	if(pagingManager.getEndPage()!=pagingManager.getLastPage()) endArrow = true;
+    	
+    	request.setAttribute("board", board);
+    	request.setAttribute("getlist", getlist);
     	request.setAttribute("mainTitle", mainTitle);
     	request.setAttribute("subTitle", subTitle);
     	request.setAttribute("leftTitle", leftTitle);
     	request.setAttribute("boardList", boardList);
-    	
+    	request.setAttribute("pagingManager", pagingManager);
+    	request.setAttribute("startArrow", startArrow);
+    	request.setAttribute("endArrow", endArrow);
 		return "board";
     }
     

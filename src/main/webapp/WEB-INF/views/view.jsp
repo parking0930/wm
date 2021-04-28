@@ -40,7 +40,7 @@
 			<div id="view_info_box">
 				<div id="writer_info">USER INFO</div>
 				<div id="img_box">
-					<img id="profile_img" src="<c:url value="/resources/img/${writerInfo.profile}" />">
+					<img id="profile_img" src="<c:url value="/resources/upload/profile/${writerInfo.profile}" />">
 				</div>
 				<div id="user_info">
 					<div class="user_info_main_font">${writerInfo.nickname} 님</div>

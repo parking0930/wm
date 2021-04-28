@@ -83,13 +83,13 @@
 				<%}else{ %>
 				<div id="my_contents_after">
 					<div id="profile_wrap">
-						<img id="profile_img" src="<c:url value="/resources/img/profile.png" />">
+						<img id="profile_img" src="<c:url value="/resources/upload/profile/${member.profile}" />">
 					</div>
 					<div id="myinfo_div">
 						<font id="nickname_text">Lv.${member.level} ${member.nickname}</font>
 						<font class="sub_text">님</font>
 						<font class="sub_text">|</font>
-						<font class="sub_text">내정보</font><br>
+						<font class="sub_text text_cursor" onclick="location.href='/member/mypage';">내정보</font><br>
 						<font class="my_text">포인트 : ${member.point}P</font><br>
 						<font class="my_text">전적 : ${member.win}승 ${member.lose}패</font><br>
 						<div id="logout_btn" onclick="location.href='/member/logout';">로그아웃</div>

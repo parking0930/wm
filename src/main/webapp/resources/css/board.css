@@ -125,6 +125,7 @@
 #board_buttons{
 	margin-top:10px;
 	width:790px;
+	height:35px;
 	text-align:right;
 }
 .btn_design{
@@ -147,3 +148,18 @@
 	width:790px;
 	text-align:center;
 }
+.nowStyle{
+	color:black;
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	font-size:22px;
+}
+.urlStyle{
+	color:black;
+	font-family:'Noto Sans KR';
+	font-weight:600;
+	font-size:16px;
+}
+.urlStyle:link { color: black; text-decoration: none;}
+.urlStyle:visited { color: black; text-decoration: none;}
+.urlStyle:hover { color: red; text-decoration: none;}

@@ -48,5 +48,10 @@ public class MemberServiceImpl implements MemberService {
 		int result = dao.login(vo);
 		return result;
 	}
+
+	@Override
+	public void updateProfile(MemberVO vo) throws Exception {
+		dao.updateProfile(vo);
+	}
  
 }
