@@ -1,7 +1,7 @@
 @charset "UTF-8";
 #center_contents{
 	width:900px;
-	height:620px;
+	height:630px;
 	margin:0 auto;
 	margin-top:20px;
 	margin-bottom:20px;
@@ -10,10 +10,25 @@
 .center_top_div{
 	_border:1px solid black;
 	margin-left:50px;
-	margin-top:10px;
+	margin-top:20px;
 }
 .img_div{
 	float:left;
+}
+.profile_img{
+	float:left;
+	width:40px;
+	border-radius:50%;
+}
+.user_area_wrap{
+	display:inline-block;
+	text-align:center;
+}
+.user_area{
+	margin-left: 10px;
+	float:left;
+	padding-top:8px;
+	padding-bottom:8px;
 }
 #crown_img{
 	width:45px;

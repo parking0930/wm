@@ -37,7 +37,7 @@
 			</table>
 			<div id="div_scroll_controll">
 				<div id="div_content">
-					<table class="ranking_table">
+					<table id="ranking_add" class="ranking_table">
 						<c:forEach var="memberVO" items="${rankingList}" varStatus="status">
 						<tr class="ranking_struct_bottom">
 							<c:if test="${status.count==1}">
@@ -52,47 +52,17 @@
 							<c:if test="${status.count>3}">
 								<td class="ranking_no ranking_font">${status.count}</td>
 							</c:if>
-							<td class="ranking_user ranking_font">Lv.${memberVO.level} ${memberVO.nickname}</td>
+							<td class="ranking_user ranking_font">
+								<div class="user_area_wrap">
+									<img class="profile_img" src="<c:url value="/resources/upload/profile/${memberVO.profile}"/>">
+									<div class="user_area">Lv.${memberVO.level} ${memberVO.nickname}</div>
+								</div>
+							</td>
 							<td class="ranking_win ranking_font">${memberVO.win}</td>
 							<td class="ranking_lose ranking_font">${memberVO.lose}</td>
 							<td class="ranking_fame ranking_font">0</td>
 						</tr>
 						</c:forEach>
-						<tr class="ranking_struct_bottom">
-							<td class="ranking_no ranking_font">ㅇㅇ</td>
-							<td class="ranking_user ranking_font">ㅇㅇ</td>
-							<td class="ranking_win ranking_font">ㅇㅇ</td>
-							<td class="ranking_lose ranking_font">ㅇㅇ</td>
-							<td class="ranking_fame ranking_font">0</td>
-						</tr>
-						<tr class="ranking_struct_bottom">
-							<td class="ranking_no ranking_font">ㅇㅇ</td>
-							<td class="ranking_user ranking_font">ㅇㅇ</td>
-							<td class="ranking_win ranking_font">ㅇㅇ</td>
-							<td class="ranking_lose ranking_font">ㅇㅇ</td>
-							<td class="ranking_fame ranking_font">0</td>
-						</tr>
-						<tr class="ranking_struct_bottom">
-							<td class="ranking_no ranking_font">ㅇㅇ</td>
-							<td class="ranking_user ranking_font">ㅇㅇ</td>
-							<td class="ranking_win ranking_font">ㅇㅇ</td>
-							<td class="ranking_lose ranking_font">ㅇㅇ</td>
-							<td class="ranking_fame ranking_font">0</td>
-						</tr>
-						<tr class="ranking_struct_bottom">
-							<td class="ranking_no ranking_font">ㅇㅇ</td>
-							<td class="ranking_user ranking_font">ㅇㅇ</td>
-							<td class="ranking_win ranking_font">ㅇㅇ</td>
-							<td class="ranking_lose ranking_font">ㅇㅇ</td>
-							<td class="ranking_fame ranking_font">0</td>
-						</tr>
-						<tr class="ranking_struct_bottom">
-							<td class="ranking_no ranking_font">ㅇㅇ</td>
-							<td class="ranking_user ranking_font">ㅇㅇ</td>
-							<td class="ranking_win ranking_font">ㅇㅇ</td>
-							<td class="ranking_lose ranking_font">ㅇㅇ</td>
-							<td class="ranking_fame ranking_font">0</td>
-						</tr>
 					</table>
 				</div>
 			</div>

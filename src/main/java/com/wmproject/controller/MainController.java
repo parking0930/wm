@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wmproject.domain.MemberVO;
 import com.wmproject.domain.RankPagingVO;
 import com.wmproject.service.MemberService;
@@ -53,10 +54,11 @@ public class MainController {
     @ResponseBody
     @RequestMapping(value = "/ranking", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String rankingPaging(@RequestParam(value= "start") int start) throws Exception {
-    	System.out.println("ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
     	RankPagingVO pagingManager = new RankPagingVO(Mservice.cntMember(), start, 10);
     	List<MemberVO> rankingList = Mservice.searchRanking(pagingManager);
-    	System.out.println(start);
-		return rankingList.toString();
+    	
+    	ObjectMapper mapper = new ObjectMapper();
+    	String jsonStr = mapper.writeValueAsString(rankingList);
+		return jsonStr;
 	}
 }
