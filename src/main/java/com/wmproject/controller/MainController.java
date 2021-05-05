@@ -44,7 +44,7 @@ public class MainController {
 
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
 	public String ranking(Model model) throws Exception {
-    	RankPagingVO pagingManager = new RankPagingVO(Mservice.cntMember(), 0, 10);
+    	RankPagingVO pagingManager = new RankPagingVO(0, 10);
     	List<MemberVO> rankingList = Mservice.searchRanking(pagingManager);
     	
     	model.addAttribute("rankingList", rankingList);
@@ -54,7 +54,7 @@ public class MainController {
     @ResponseBody
     @RequestMapping(value = "/ranking", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String rankingPaging(@RequestParam(value= "start") int start) throws Exception {
-    	RankPagingVO pagingManager = new RankPagingVO(Mservice.cntMember(), start, 10);
+    	RankPagingVO pagingManager = new RankPagingVO(start, 10);
     	List<MemberVO> rankingList = Mservice.searchRanking(pagingManager);
     	
     	ObjectMapper mapper = new ObjectMapper();

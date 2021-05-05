@@ -1,22 +1,12 @@
 package com.wmproject.domain;
 
 public class RankPagingVO {
-	private int totalUser;
 	private int cntPerPage;
 	private int start; // SQL start
 
-	public RankPagingVO(int totalUser, int start, int cntPerPage) {
-		this.totalUser = totalUser;
+	public RankPagingVO(int start, int cntPerPage) {
 		this.cntPerPage = cntPerPage;
 		this.start = start;
-	}
-
-	public int getTotalUser() {
-		return totalUser;
-	}
-
-	public void setTotalUser(int totalUser) {
-		this.totalUser = totalUser;
 	}
 
 	public int getCntPerPage() {
@@ -37,7 +27,7 @@ public class RankPagingVO {
 
 	@Override
 	public String toString() {
-		return "RankPagingVO [totalUser=" + totalUser + ", cntPerPage=" + cntPerPage + ", start=" + start + "]";
+		return "RankPagingVO [cntPerPage=" + cntPerPage + ", start=" + start + "]";
 	}
 
 }

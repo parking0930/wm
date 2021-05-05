@@ -19,9 +19,6 @@
 	<select id="searchRanking" resultType="memberVO">
 		select nickname, level, point, win, lose, profile from member order by (win-lose) desc limit #{start}, #{cntPerPage};
 	</select>
-	<select id="cntMember" resultType="int">
-		select count(*) from member;
-	</select>
 	<insert id="signUp" parameterType="memberVO">
 		insert into member(id, pw, nickname) values(#{id}, #{pw}, #{nickname});
 	</insert>
