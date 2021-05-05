@@ -1,11 +1,14 @@
 package com.wmproject.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
  
 import org.springframework.stereotype.Service;
 
 import com.wmproject.dao.MemberDAO;
 import com.wmproject.domain.MemberVO;
+import com.wmproject.domain.RankPagingVO;
  
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -52,6 +55,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void updateProfile(MemberVO vo) throws Exception {
 		dao.updateProfile(vo);
+	}
+
+	@Override
+	public List<MemberVO> searchRanking(RankPagingVO vo) throws Exception {
+		return dao.searchRanking(vo);
+	}
+
+	@Override
+	public int cntMember() throws Exception {
+		return dao.cntMember();
 	}
  
 }

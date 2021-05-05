@@ -8,7 +8,7 @@
 	<title>WEB MAPIA - WRITE</title>
 	<link href="<c:url value="/resources/css/write.css" />" rel="stylesheet">
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script  src="<c:url value="/resources/js/write.js" />"></script>
+	<script  src="<c:url value="/resources/js/write.js" />"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

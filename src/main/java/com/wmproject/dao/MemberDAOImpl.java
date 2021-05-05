@@ -1,10 +1,13 @@
 package com.wmproject.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
  
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.wmproject.domain.MemberVO;
+import com.wmproject.domain.RankPagingVO;
  
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -51,6 +54,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void updateProfile(MemberVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProfile", vo);
+	}
+
+	@Override
+	public List<MemberVO> searchRanking(RankPagingVO vo) throws Exception {
+		return sqlSession.selectList(Namespace+".searchRanking", vo);
+	}
+
+	@Override
+	public int cntMember() throws Exception {
+		return sqlSession.selectOne(Namespace+".cntMember");
 	}
  
 }

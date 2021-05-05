@@ -1,0 +1,111 @@
+@charset "UTF-8";
+#center_contents{
+	width:900px;
+	height:620px;
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	border:1px solid silver;
+}
+.center_top_div{
+	_border:1px solid black;
+	margin-left:50px;
+	margin-top:10px;
+}
+.img_div{
+	float:left;
+}
+#crown_img{
+	width:45px;
+	padding:7px;
+}
+.title_font{
+	font-family:'Noto Sans KR';
+	font-weight:600;
+	font-size:38px;
+}
+.sub_font{
+	font-family:'Noto Sans KR';
+	font-weight:600;
+	font-size:14px;
+}
+#buttons_div{
+	margin: 20px 50px 10px 50px;
+}
+.button_design{
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:15px;
+	margin-left:5px;
+	padding: 5px 10px 5px 10px;
+	border-radius:5px;
+	background:white;
+	border:1px solid silver;
+	box-shadow: 1px 1px 2px silver;
+}
+.button_design:hover{
+	background:silver;
+	cursor:pointer;
+}
+#table_wrap{
+	width:790px;
+	height:437px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.ranking_table{
+	border-collapse:collapse;
+}
+#ranking_title_box{
+	border:1px solid silver;
+	background-image: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+}
+.ranking_no{
+	width:120px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+.ranking_user{
+	width:250px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+.ranking_win{
+	width:140px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+.ranking_lose{
+	width:140px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+.ranking_fame{
+	width:140px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+.ranking_tr_plus{
+	font-family:'Noto Sans KR';
+	padding:4px 0px 4px 0px;
+	font-weight:600;
+	color:black;
+	font-size:16px;
+}
+.ranking_struct_bottom{
+	border-bottom:1px solid silver;
+}
+.ranking_font{
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:17px;
+}
+#div_scroll_controll{
+	width:795px;
+	height:410px;
+	overflow-y:auto;
+	border-bottom:1px solid silver;
+}
+.ranking_img{
+	width:40px;
+}
