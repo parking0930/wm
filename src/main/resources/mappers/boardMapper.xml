@@ -10,6 +10,20 @@
 	<select id="getBoard" resultType="boardVO">
 		select id, title, contents, nickname, date, view from ${board} where id=#{id};
 	</select>
+	<select id="getRecentNotice" resultType="boardVO">
+		select id, title, date, 'notice' as board from notice
+		union
+		select id, title, date, 'event' as board from event
+		order by date desc
+		limit 6;
+	</select>
+	<select id="getRecentCommunity" resultType="boardVO">
+		select id, title, date, 'free' as board from free
+		union
+		select id, title, date, 'screenshot' as board from screenshot
+		order by date desc
+		limit 6;
+	</select>
 	<select id="searchBoardId" resultType="boardVO">
 		select id from ${board} where nickname=#{nickname} order by id desc limit 1;
 	</select>

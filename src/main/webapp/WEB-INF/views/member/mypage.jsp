@@ -9,7 +9,7 @@
 	<link href="<c:url value="/resources/css/mypage.css" />" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="center_contents">
 		<p id="main_font">My Page</p>
 		<form action="/member/mypageSubmit" method="post" enctype="multipart/form-data">
@@ -27,6 +27,6 @@
 			<div><input type="submit" value="적용" id="reg_submit"></div>
 		</form>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

@@ -1,11 +1,12 @@
 @charset "UTF-8";
 #center_contents{
 	width:900px;
-	height:630px;
+	height:640px;
 	margin:0 auto;
 	margin-top:20px;
 	margin-bottom:20px;
 	border:1px solid silver;
+	box-shadow: 4px 4px 5px silver;
 }
 .center_top_div{
 	_border:1px solid black;

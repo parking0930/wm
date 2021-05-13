@@ -72,7 +72,7 @@ public class BoardController {
     	request.setAttribute("pagingManager", pagingManager);
     	request.setAttribute("startArrow", startArrow);
     	request.setAttribute("endArrow", endArrow);
-		return "board";
+		return "/board/board";
     }
     
     @RequestMapping(value = "/write", method = RequestMethod.GET)
@@ -111,12 +111,12 @@ public class BoardController {
     		request.setAttribute("getBoard", getBoard);
     	}
     	
-        return "write";
+        return "/board/write";
     }
     
     @RequestMapping(value = "/imgupload", method = RequestMethod.GET)
     public String imguploadGet(HttpServletRequest request, HttpServletResponse response) throws Exception{
-    	return "imgupload";
+    	return "/board/imgupload";
     }
     
     @ResponseBody
@@ -176,7 +176,7 @@ public class BoardController {
     	request.setAttribute("commentList", commentList);
     	request.setAttribute("CommentCount", CommentCount);
     	
-        return "view";
+        return "/board/view";
     }
     
     @RequestMapping(value = "/submit", method = RequestMethod.POST)

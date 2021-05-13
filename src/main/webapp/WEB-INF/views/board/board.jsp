@@ -10,7 +10,7 @@
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="board_logo">
 		<img style="position:absolute;" src="<c:url value="/resources/img/board.png" />">
 		<div id="board_logo_text">${mainTitle}</div>
@@ -77,6 +77,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

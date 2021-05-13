@@ -90,5 +90,15 @@ public class BoardServiceImpl implements BoardService {
 		dao.writeComment(comment);
 		return;
 	}
+
+	@Override
+	public List<BoardVO> getRecentNotice() throws Exception {
+		return dao.getRecentNotice();
+	}
+
+	@Override
+	public List<BoardVO> getRecentCommunity() throws Exception {
+		return dao.getRecentCommunity();
+	}
 	
 }

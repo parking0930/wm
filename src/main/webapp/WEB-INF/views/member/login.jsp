@@ -9,7 +9,7 @@
 	<link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="login_box">
 		<div id="login_logo_text">
 			WEB MAPIA LOGIN
@@ -33,6 +33,6 @@
 			<font class="login_bottom_font" style="margin-left:10px">아이디·비밀번호 찾기</font>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

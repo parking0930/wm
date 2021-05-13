@@ -17,4 +17,6 @@ public interface BoardService {
     public void updateBoard(BoardVO board) throws Exception;
     public List<CommentVO> selectComments(BoardVO board) throws Exception;
     public void writeComment(CommentVO comment) throws Exception;
+    public List<BoardVO> getRecentNotice() throws Exception;
+    public List<BoardVO> getRecentCommunity() throws Exception;
 }

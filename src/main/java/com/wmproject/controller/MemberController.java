@@ -62,21 +62,30 @@ public class MemberController {
         out.close();
 		return null;
 	}
-	
+
+    
+    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public String signUp() {
+		return "/member/signUp";
+	}
+    
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "/member/login";
+	}
+    
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void login(MemberVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int result = service.login(vo);
 		if(result==1) {
 			MemberVO myinfo = service.selectMemberById(vo);
 			request.getSession().setAttribute("member", myinfo);
 			response.sendRedirect("/");
-			return null;
 		}else {
 			response.setContentType("text/html; charset=UTF-8");
 	        PrintWriter out = response.getWriter();
 	        out.println("<script>alert('아이디 또는 비밀번호가 틀립니다.');history.go(-1);</script>");
 	        out.close();
-	        return null;
 		}
 	}
 	
@@ -90,7 +99,7 @@ public class MemberController {
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(HttpServletRequest request) throws Exception {
 		if(request.getSession().getAttribute("member")==null) return "redirect:/";
-		return "mypage";
+		return "/member/mypage";
 	}
 	
 	@RequestMapping(value = "/mypageSubmit", method = RequestMethod.POST)

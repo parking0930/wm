@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/view.js" />"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="board_logo">
 		<img style="position:absolute;" src="<c:url value="/resources/img/board.png" />">
 		<div id="board_logo_text">${mainTitle}</div>
@@ -86,6 +86,6 @@
 			<div class="buttons" onclick="location.href='/board?board=${board}';">목록</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

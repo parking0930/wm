@@ -71,4 +71,14 @@ public class BoardDAOImpl implements BoardDAO{
 		return;
 	}
 
+	@Override
+	public List<BoardVO> getRecentNotice() throws Exception {
+		return sqlSession.selectList(Namespace+".getRecentNotice");
+	}
+
+	@Override
+	public List<BoardVO> getRecentCommunity() throws Exception {
+		return sqlSession.selectList(Namespace+".getRecentCommunity");
+	}
+
 }

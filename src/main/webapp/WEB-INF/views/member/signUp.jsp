@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/signUp.js" />"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="image_area">
 		<div id="img_wrap">
 			<img src="<c:url value="/resources/img/signuplogo.png" />">
@@ -84,6 +84,6 @@
 		</div>
 	</div>
 	</form>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

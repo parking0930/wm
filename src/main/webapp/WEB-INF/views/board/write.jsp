@@ -11,7 +11,7 @@
 	<script  src="<c:url value="/resources/js/write.js" />"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="board_logo">
 		<img style="position:absolute;" src="<c:url value="/resources/img/board.png" />">
 		<div id="board_logo_text">${mainTitle}</div>
@@ -53,6 +53,6 @@
 		</div>
 		</form>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

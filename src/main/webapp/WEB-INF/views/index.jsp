@@ -25,58 +25,36 @@
 					<font class="board_name_text">공지사항</font>
 					<font class="board_more_text">더보기</font>
 				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
+				<c:forEach var="notice" items="${noticeList}">
+					<div class="board_title">
+						<a href="/board/view?board=${notice.board}&id=${notice.id}" class="board_title_font">
+							· ${notice.title}
+						</a>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="board_contents">
 				<div class="title_div">
 					<font class="board_name_text">커뮤니티</font>
 					<font class="board_more_text">더보기</font>
 				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
-				<div class="board_title">
-					<font class="board_title_font">· 테스트용 게시글입니다.</font>
-				</div>
+				<c:forEach var="community" items="${communityList}">
+					<div class="board_title">
+						<a href="/board/view?board=${community.board}&id=${community.id}" class="board_title_font">
+							· ${community.title}
+						</a>
+					</div>
+				</c:forEach>
 			</div>
 			<div id="right_contents">
 				<%if(session.getAttribute("member")==null){ %>
 				<div id="my_contents">
 					<font id="login_text">로그인하고 게임을 시작하세요!</font>
-					<div id="loginBtn" onclick="location.href='/login';">
+					<div id="loginBtn" onclick="location.href='/member/login';">
 						로그인
 					</div>
 					<div id="reg_div">
-						<a class="reg_text" href="./signUp">회원가입</a>
+						<a class="reg_text" href="/member/signUp">회원가입</a>
 						<font class="reg_text" style="margin-left:10px;">아이디·비밀번호 찾기</font>
 					</div>
 				</div>
@@ -96,7 +74,7 @@
 					</div>
 				</div>
 				<%} %>
-				<img id="gamestartBtn" src="<c:url value="/resources/img/GameStart.png" />">
+				<img id="gamestartBtn" src="<c:url value="/resources/img/GameStart.png" />" onclick="location.href='/mapia/lobby';">
 			</div>
 		</div>
 	</div>

@@ -58,10 +58,17 @@
 	border-top:1px solid black;
 	padding:5px 10px 5px 10px;
 }
+.board_title:hover{
+	background:#eaeaea;
+}
 .board_title_font{
 	font-family:'Noto Sans KR';
 	font-weight:500;
 	font-size:14px;
+	color:black;
+}
+.board_title_font:hover{
+	color:blue;
 }
 #right_contents{
 	float:left;
@@ -78,6 +85,9 @@
 	margin-top:10px;
 	width:355px;
 	box-shadow: 5px 5px 5px silver;
+}
+#gamestartBtn:hover{
+	cursor:pointer;
 }
 #login_text{
 	display:block;
