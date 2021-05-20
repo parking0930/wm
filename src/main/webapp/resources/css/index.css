@@ -52,7 +52,10 @@
 	font-weight:700;
 	color:black;
 	font-size:15px;
-	margin-left:245px;
+	margin-left:240px;
+}
+.board_more_text{
+	cursor:pointer;
 }
 .board_title{
 	border-top:1px solid black;

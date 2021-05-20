@@ -23,7 +23,7 @@
 			<div class="board_contents">
 				<div class="title_div">
 					<font class="board_name_text">공지사항</font>
-					<font class="board_more_text">더보기</font>
+					<a href="/board?board=notice" class="board_more_text">더 보기</a>
 				</div>
 				<c:forEach var="notice" items="${noticeList}">
 					<div class="board_title">
@@ -36,7 +36,7 @@
 			<div class="board_contents">
 				<div class="title_div">
 					<font class="board_name_text">커뮤니티</font>
-					<font class="board_more_text">더보기</font>
+					<a href="/board?board=free" class="board_more_text">더 보기</a>
 				</div>
 				<c:forEach var="community" items="${communityList}">
 					<div class="board_title">

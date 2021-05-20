@@ -20,6 +20,7 @@ div{
 	padding:0;
 	margin:-405px 0px 0px -720px;
 	border:3px solid black;
+	box-shadow: 10px 10px 10px silver;
 }
 #top_content{
 	width:100%;
@@ -51,6 +52,7 @@ div{
 }
 #top_profile_img{
 	width:28px;
+	height:28px;
 	border-radius:50%;
 }
 #top_player_info{
@@ -140,7 +142,8 @@ div{
 	background:black;
 }
 #connect_member{
-	height:190px;
+	padding-top:10px;
+	height:180px;
 	overflow-y:auto;
 }
 #chat_area{
@@ -153,8 +156,10 @@ div{
 	background:black;
 }
 #chat_content{
-	height:410px;
+	height:400px;
+	padding-top:10px;
 	border-bottom:3px solid black;
+	overflow-y:auto;
 }
 #chat_input{
 	height:51px;
@@ -180,15 +185,108 @@ div{
 	height:745.5px;
 }
 #my_info{
-	height:180px;
+	height:195px;
 	border:3px solid black;
+}
+#my_info_top{
+	height:40px;
+	background:black;
+}
+#my_info_inner{
+	height:126px;
+	padding:15px 30px 15px 30px;
+}
+#logout_btn{
+	display:inline-block;
+	margin-left:145px;
+	margin-top:5px;
+	padding: 2px 15px 2px 15px;
+	border-radius:15px;
+	background:white;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:16px;
+	color:black;
+}
+#logout_btn:hover{
+	background:silver;
+	cursor:pointer;
+}
+#my_info_profile_img{
+	float:left;
+	width:30px;
+	height:30px;
+	border-radius:50%;
+}
+.my_info_text{
+	display:inline-block;
+	margin-left:10px;
+	font-family:'Noto Sans KR';
+	font-weight:600;
+	font-size:21px;
+	color:black;
+}
+.my_info_subtext{
+	margin-top:5px;
+	margin-left:2px;
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:18px;
+	color:black;
 }
 #user_ranking{
 	margin-top:10px;
 	height:284px;
 	border-top:3px solid black;
 	border:3px solid black;
-	background:silver;
+}
+#ranking_top{
+	height:40px;
+	background:black;
+}
+#ranking_area{
+	height:244px;
+	overflow-y:auto;
+}
+.ranking_tr{
+	font-family:'Noto Sans KR';
+	font-weight:500;
+	font-size:16px;
+	color:black;
+	text-align:center;
+	border-bottom:1px solid silver;
+}
+.ranking_tr:hover{
+	background:#eaeaea;
+}
+.ranking_no{
+	width:90px;
+	padding:10px 0px 10px 0px;
+}
+.ranking_nickname{
+	text-align:left;
+	width:220px;
+	padding:10px 0px 10px 0px;
+}
+.ranking_user_area_wrap{
+	display:inline-block;
+	text-align:center;
+}
+.ranking_profile{
+	margin-left:20px;
+	float:left;
+	width:28px;
+	height:28px;
+	border-radius:50%;
+}
+.ranking_user_area{
+	padding-top:2px;
+	margin-left:10px;
+	display:inline-block;
+	text-align:center;
+}
+.ranking_img{
+	width:30px;
 }
 #notice{
 	margin-top:10px;
@@ -215,8 +313,8 @@ div{
 	padding-bottom:8px;
 }
 #howtoGame{
-	padding-top:13px;
-	padding-bottom:13px;
+	padding-top:8px;
+	padding-bottom:8px;
 	font-family:'Noto Sans KR';
 	font-weight:800;
 	font-size:40px;
@@ -231,8 +329,8 @@ div{
 }
 #exitBtn{
 	margin-top:10px;
-	padding-top:12px;
-	padding-bottom:12px;
+	padding-top:10px;
+	padding-bottom:10px;
 	border:5px solid black;
 	font-family:'Noto Sans KR';
 	font-weight:800;
@@ -244,6 +342,7 @@ div{
 	cursor:pointer;
 }
 .title_font{
+	float:left;
 	font-family:'Noto Sans KR';
 	font-weight:600;
 	font-size:17px;
@@ -270,6 +369,10 @@ div{
 	width:355px;
 	padding:10px 0px 10px 0px;
 }
+.room_title:hover{
+	cursor:pointer;
+	color:blue;
+}
 .room_creator{
 	width:180px;
 	padding:10px 0px 10px 0px;
@@ -277,4 +380,83 @@ div{
 .room_status{
 	width:100px;
 	padding:10px 0px 10px 0px;
+}
+.player_chat_info{
+	height:30px;
+	margin-left:20px;
+	margin-right:15px;
+	margin-bottom:2px;
+	text-align:left;
+}
+.player_chat_img_div{
+	float:left;
+}
+.player_chat_img{
+	width:26px;
+	height:26px;
+	border-radius:50%;
+}
+.player_chat_top{
+	float:left;
+	margin-left:6px;
+	padding:1px 0px 4px 0px;
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	font-size:16px;
+}
+.player_chat_sys{
+	width:240px;
+	background: linear-gradient( to bottom, #fad0c4, #ff9a9e );
+	border-radius:10px;
+	margin-bottom:12px;
+	margin-left:15px;
+	padding: 6px 20px 6px 20px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+	box-shadow: 2px 2px 2px silver;
+}
+.player_chat_all{
+	width:240px;
+	background-image: linear-gradient( to bottom, #c2e9fb, #a1c4fd );
+	border-radius:10px;
+	margin-bottom:12px;
+	margin-left:15px;
+	padding: 6px 20px 6px 20px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+	box-shadow: 2px 2px 2px silver;
+}
+.player_chat_my{
+	width:240px;
+	background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+	border-radius:10px;
+	margin-bottom:12px;
+	margin-left:15px;
+	padding: 6px 20px 6px 20px;
+	text-align:left;
+	font-family:'Noto Sans KR';
+	font-weight:400;
+	font-size:15px;
+	box-shadow: 2px 2px 2px silver;
+}
+
+.player_connect
+{
+	display:inline-block;
+	margin-left:15px;
+	width:240px;
+	_background: linear-gradient( to bottom, #c2e9fb, #a1c4fd );
+	border-radius:5px;
+	padding: 7px 20px 2px 20px;
+	margin-bottom:6px;
+	font-family:'Noto Sans KR';
+	font-weight:700;
+	font-size:17px;
+	text-align:left;
+	border:1px solid silver;
+	box-shadow: 3px 3px 3px silver;
 }

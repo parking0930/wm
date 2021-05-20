@@ -54,7 +54,7 @@
 			<c:forEach var="comment" items="${commentList}">
 				<div class="comments">
 					<div class="comment_user_img_box">
-						<img class="comment_profile" src="<c:url value="/resources/upload/profile/${writerInfo.profile}" />">
+						<img class="comment_profile" src="<c:url value="/resources/upload/profile/${comment.writerinfo.profile}" />">
 					</div>
 					<div class="comment_user_info">Lv${comment.writerinfo.level}. ${comment.writerinfo.nickname}</div>
 					<div class="comment_date">
