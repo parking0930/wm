@@ -109,7 +109,7 @@ public class SocketController {
 		if(!roomManage.isRoomExist(msg.getRoomId())) { // 플레이어가 접근하려는 방이 서버에 존재하지 않으면 생성
 			GameRoom gameRoom = new GameRoom();
 			gameRoom.setRoomId(msg.getRoomId());
-			if(!msg.getRoomId().equals("Lobby")) { // 요청하는 방이 로비가 아니면
+			if(!msg.getRoomId().equals("Lobby")) { // 요청하는 방이 로비가 아니면 => 게임 방이면
 				//gameRoom.setRoomName(방 제목 예시..); // 방 제목 설정
 				//System.out.println("새로운 방("+roomId+" : "+gameRoom.getRoomName()+")이 생성되었습니다.");
 				//isCreate = 1;
@@ -155,7 +155,7 @@ public class SocketController {
     	MemberVO member = (MemberVO)httpSession.getAttribute("member");
     	if(member==null) session.close(); // 세션 만료 혹은 다른 창에서 로그아웃 했을 시 대비
     	
-    	sendMessageById(new Message(msg.getRoomId(), "CHAT", member, msg.getData2()));
+    	sendMessageById(new Message(msg.getRoomId(), "CHAT", member, msg.getData()));
     }
     
     public void RefreshUserList(String roomId) throws Exception {

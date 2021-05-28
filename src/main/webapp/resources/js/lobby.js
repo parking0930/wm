@@ -7,7 +7,7 @@ $(document).ready(function(){
 				var message = {
 					roomId:'Lobby',
 					event:'CHAT',
-					data2:$('#chat_input_design').val()
+					data:$('#chat_input_design').val()
 				}
 				webSocket.send(JSON.stringify(message));
 				$('#chat_input_design').val('');

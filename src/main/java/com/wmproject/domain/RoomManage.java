@@ -81,13 +81,13 @@ public class RoomManage {
 	}
 	
 	public String setRoomId() {
-		if(roomlist.size() == 1) return "1"; // WaitRoom밖에 없는 상태면 1번방 지정
-		if(roomlist.get(roomlist.size()-1).getRoomId().equals("Hello")) { // 마지막 방이 WaitRoom 이면
+		if(roomlist.size() == 1) return "1"; // 로비밖에 없는 상태면 1번방 지정
+		if(roomlist.get(roomlist.size()-1).getRoomId().equals("Lobby")) { // 마지막 방이 로비 라면
 			int roomId = Integer.parseInt(roomlist.get(roomlist.size()-2).getRoomId())+1;
-			return Integer.toString(roomId); // 마지막 방이 WaitRoom이 아니면
-		}else {
+			return Integer.toString(roomId);
+		}else { // 마지막 방이 로비가 아니면
 			int roomId = Integer.parseInt(roomlist.get(roomlist.size()-1).getRoomId())+1;
-			return Integer.toString(roomId); // 마지막 방이 WaitRoom이 아니면
+			return Integer.toString(roomId);
 		}
 	}
 }

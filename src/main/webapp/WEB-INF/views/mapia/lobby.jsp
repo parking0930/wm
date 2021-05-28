@@ -185,7 +185,7 @@
 					<div id="my_info_inner">
 						<img id="my_info_profile_img" src="<c:url value="/resources/upload/profile/${member.profile}"/>">
 						<div class="my_info_text">Lv.${member.level} ${member.nickname}</div>
-						<div class="my_info_subtext">포인트: ${member.point}</div>
+						<div class="my_info_subtext">포인트: ${member.point}P</div>
 						<div class="my_info_subtext">전적: ${member.win}승 ${member.lose}패</div>
 						<div class="my_info_subtext">가입일: ${member.date}</div>
 					</div>
